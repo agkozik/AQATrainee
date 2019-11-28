@@ -2,8 +2,14 @@ package jackson;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.annotation.Generated;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+import javax.annotation.Generated;
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person{
 
 	@JsonProperty("address")
@@ -71,32 +77,6 @@ public class Person{
 
 	@JsonProperty("longitude")
 	private double longitude;
-
-	public Person(){};
-	public Person(String address, String gender, double latitude, String greeting, String about, int index, String registered, boolean isActive, String picture, List<FriendsItem> friends, List<String> tags, String favoriteFruit, String balance, String eyeColor, String phone, String name, String guid, String company, String id, int age, String email, double longitude) {
-		this.address = address;
-		this.gender = gender;
-		this.latitude = latitude;
-		this.greeting = greeting;
-		this.about = about;
-		this.index = index;
-		this.registered = registered;
-		this.isActive = isActive;
-		this.picture = picture;
-		this.friends = friends;
-		this.tags = tags;
-		this.favoriteFruit = favoriteFruit;
-		this.balance = balance;
-		this.eyeColor = eyeColor;
-		this.phone = phone;
-		this.name = name;
-		this.guid = guid;
-		this.company = company;
-		this.id = id;
-		this.age = age;
-		this.email = email;
-		this.longitude = longitude;
-	}
 
 	public void setAddress(String address){
 		this.address = address;
@@ -276,30 +256,30 @@ public class Person{
 
 	@Override
  	public String toString(){
-		return 
-			"Person{" + 
-			"address = '" + address + '\'' + 
-			",gender = '" + gender + '\'' + 
-			",latitude = '" + latitude + '\'' + 
-			",greeting = '" + greeting + '\'' + 
-			",about = '" + about + '\'' + 
-			",index = '" + index + '\'' + 
-			",registered = '" + registered + '\'' + 
-			",isActive = '" + isActive + '\'' + 
-			",picture = '" + picture + '\'' + 
-			",friends = '" + friends + '\'' + 
-			",tags = '" + tags + '\'' + 
-			",favoriteFruit = '" + favoriteFruit + '\'' + 
-			",balance = '" + balance + '\'' + 
-			",eyeColor = '" + eyeColor + '\'' + 
-			",phone = '" + phone + '\'' + 
-			",name = '" + name + '\'' + 
-			",guid = '" + guid + '\'' + 
-			",company = '" + company + '\'' + 
-			",_id = '" + id + '\'' + 
-			",age = '" + age + '\'' + 
-			",email = '" + email + '\'' + 
-			",longitude = '" + longitude + '\'' + 
+		return
+			"Person{" +
+			"address = '" + address + '\'' +
+			",gender = '" + gender + '\'' +
+			",latitude = '" + latitude + '\'' +
+			",greeting = '" + greeting + '\'' +
+			",about = '" + about + '\'' +
+			",index = '" + index + '\'' +
+			",registered = '" + registered + '\'' +
+			",isActive = '" + isActive + '\'' +
+			",picture = '" + picture + '\'' +
+			",friends = '" + friends + '\'' +
+			",tags = '" + tags + '\'' +
+			",favoriteFruit = '" + favoriteFruit + '\'' +
+			",balance = '" + balance + '\'' +
+			",eyeColor = '" + eyeColor + '\'' +
+			",phone = '" + phone + '\'' +
+			",name = '" + name + '\'' +
+			",guid = '" + guid + '\'' +
+			",company = '" + company + '\'' +
+			",_id = '" + id + '\'' +
+			",age = '" + age + '\'' +
+			",email = '" + email + '\'' +
+			",longitude = '" + longitude + '\'' +
 			"}";
 		}
 }
