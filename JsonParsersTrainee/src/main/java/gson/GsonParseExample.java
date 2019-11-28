@@ -27,8 +27,8 @@ public class GsonParseExample {
         writeJsonToFile(persons);
         long lf=System.currentTimeMillis();
         System.out.println(lf-ls);
-
     }
+
     public static ArrayList<Person> readJson(){
     Gson gson = new Gson();
         try {
@@ -40,6 +40,7 @@ public class GsonParseExample {
         }
         return persons;
 }
+
     public static void writeJsonToFile(ArrayList<Person> persons){
         Gson gson = new Gson();
         String personsFromJson=gson.toJson(persons);
@@ -49,6 +50,7 @@ public class GsonParseExample {
             System.out.println("Ошибка доступа к файлу: " + e.getMessage());
         }
     }
+
     public static ArrayList<Person> addPersonToJson(ArrayList<Person> persons){
         Person p1=persons.get(0);
         Person p2=persons.get(1);
