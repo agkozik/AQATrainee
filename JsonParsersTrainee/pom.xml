@@ -54,13 +54,7 @@
         <version>1.18.10</version>
         <scope>provided</scope>
     </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>1.7.29</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
+       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.5</version>

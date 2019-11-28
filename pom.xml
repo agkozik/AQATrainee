@@ -8,8 +8,9 @@
     <artifactId>AQATrainee</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>pom</packaging>
     <modules>
         <module>JsonParsersTrainee</module>
-
     </modules>
+
 </project>
