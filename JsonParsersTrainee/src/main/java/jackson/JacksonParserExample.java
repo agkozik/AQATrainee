@@ -17,25 +17,27 @@ public class JacksonParserExample {
     private static final String PATH = "C:\\DZ\\AQATrainee\\JsonParsersTrainee\\src\\main\\resources\\";
     private static final String FILETOOBJECT = "json.txt";
     private static final String STRINGTOJSON = "Jackson.json";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
     private static ArrayList<Person> people;
 
     public static void main(String[] args) {
-        long ls=System.currentTimeMillis();
-        people=parseToObjectUsingJackson();
+        long ls = System.currentTimeMillis();
+        people = parseToObjectUsingJackson();
         addPersons(people);
         rewriteJSONUsingJackson(people);
-        long lf=System.currentTimeMillis();
-        System.out.println(lf-ls);
+        long lf = System.currentTimeMillis();
+        System.out.println(lf - ls);
     }
 
     private static void addPersons(ArrayList<Person> people) {
         ArrayList<FriendsItem> frl = new ArrayList();
         List<String> taglist = new ArrayList();
-        Person p1,p2,p3,p4;
+        Person p1, p2, p3, p4;
         p1 = new Person("1", "2", 2411341.2, "efg", "rqef", 124, "wafad", false, "dgsgs", frl, taglist, "fav", "al", "111", "222", "333", "44", "555", "11111", 34, "sag", 15.2);
         p2 = new Person("2", "2", 2411341.2, "efg", "rqef", 124, "wafad", false, "dgsgs", frl, taglist, "fav", "al", "111", "222", "333", "44", "555", "22222", 34, "sag", 15.2);
-        p3=people.get(1);
-        p4=people.get(2);
+        p3 = people.get(1);
+        p4 = people.get(2);
         people.add(p1);
         people.add(p2);
         people.add(p3);
@@ -44,7 +46,6 @@ public class JacksonParserExample {
 
     private static ArrayList<Person> parseToObjectUsingJackson() {
         ArrayList<Person> personList = new ArrayList<>();
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
             CollectionType typeReference =
                     TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class);
@@ -55,8 +56,7 @@ public class JacksonParserExample {
         return personList;
     }
 
-     private static void rewriteJSONUsingJackson(ArrayList<Person> personArrayList) {
-        ObjectMapper objectMapper = new ObjectMapper();
+    private static void rewriteJSONUsingJackson(ArrayList<Person> personArrayList) {
         String jsonString = null;
         try {
             jsonString = objectMapper
@@ -66,6 +66,7 @@ public class JacksonParserExample {
             System.out.println("Ошибка доступа к файлу: " + e.getMessage());
         }
         try {
+            assert jsonString != null;
             Files.write(Paths.get(PATH + STRINGTOJSON), jsonString.getBytes(), StandardOpenOption.CREATE);
         } catch (IOException e) {
             System.out.println("Ошибка доступа к файлу: " + e.getMessage());
