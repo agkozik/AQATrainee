@@ -23,12 +23,9 @@ public class GsonParseExample {
     static ArrayList<Person> persons;
 
     public static void main(String[] args) {
-        long ls = System.currentTimeMillis();
         readJson();
         addPersonToJson(persons);
         writeJsonToFile(persons);
-        long lf = System.currentTimeMillis();
-        System.out.println(lf - ls);
     }
 
     public static ArrayList<Person> readJson() {

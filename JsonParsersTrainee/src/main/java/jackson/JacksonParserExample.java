@@ -22,24 +22,17 @@ public class JacksonParserExample {
     private static ArrayList<Person> people;
 
     public static void main(String[] args) {
-        long ls = System.currentTimeMillis();
         people = parseToObjectUsingJackson();
         addPersons(people);
         rewriteJSONUsingJackson(people);
-        long lf = System.currentTimeMillis();
-        System.out.println(lf - ls);
     }
 
     private static void addPersons(ArrayList<Person> people) {
         ArrayList<FriendsItem> frl = new ArrayList();
         List<String> taglist = new ArrayList();
-        Person p1, p2, p3, p4;
-        p1 = new Person("1", "2", 2411341.2, "efg", "rqef", 124, "wafad", false, "dgsgs", frl, taglist, "fav", "al", "111", "222", "333", "44", "555", "11111", 34, "sag", 15.2);
-        p2 = new Person("2", "2", 2411341.2, "efg", "rqef", 124, "wafad", false, "dgsgs", frl, taglist, "fav", "al", "111", "222", "333", "44", "555", "22222", 34, "sag", 15.2);
+        Person p3, p4;
         p3 = people.get(1);
         p4 = people.get(2);
-        people.add(p1);
-        people.add(p2);
         people.add(p3);
         people.add(p4);
     }
