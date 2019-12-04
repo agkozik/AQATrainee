@@ -7,9 +7,12 @@ public class jdbcSeparateMethods {
     static Connection conn;
 
     public static void main(String[] args) {
-        //createTableIfNotExist(initConnection());
-        //addToBase(initConnection());
-        getCountryByRegions(initConnection());
+        conn=initConnection();
+        createTableIfNotExist(conn);
+        addToBase(conn);
+        showCountRegionsAndCitiesInCountry(conn);
+        top5countriesWithTheBiggestAmountOfCities(conn);
+        top5countriesWithTheBiggestAmountOfRegions(conn);
     }
 
     public static Connection initConnection() {
@@ -76,7 +79,59 @@ public class jdbcSeparateMethods {
         }
     }
 
-    public static void getCountryByRegions(Connection conn) {
+    public static void top5countriesWithTheBiggestAmountOfRegions(Connection conn) {
+        try (Statement statement = conn.createStatement()) {
+            ResultSet resultSet = null;
+            try {
+                resultSet = statement.executeQuery("SELECT country.name,\n" +
+                        "Count(Distinct region.name)\n" +
+                        "From country\n" +
+                        "INNER JOIN region ON country.id = region.country_id\n" +
+                        "GROUP BY country.name\n" +
+                        "ORDER BY  Count(Distinct region.name) desc\n" +
+                        "Limit 5");
+                while (resultSet.next()) {
+                    String name = resultSet.getString(1);
+                    int regions = resultSet.getInt(2);
+                    System.out.println( "Name= " + name + " Region= " + regions);
+                }
+            } catch (SQLException ex) {
+                System.err.println("SQLException Message" + ex.getMessage());
+                System.err.println("SQLStatus" + ex.getSQLState());
+                System.err.println("SQLError" + ex.getErrorCode());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void top5countriesWithTheBiggestAmountOfCities(Connection conn) {
+        try (Statement statement = conn.createStatement()) {
+            ResultSet resultSet = null;
+            try {
+                resultSet = statement.executeQuery("SELECT country.name,\n" +
+                        "Count (Distinct city.name) cities\n" +
+                        "From country\n" +
+                        "LEFT JOIN region ON country.id=region.country_id\n" +
+                        "LEFT JOIN city ON city.region_id=region.id\n" +
+                        "GROUP BY country.name\n" +
+                        "ORDER BY cities desc\n" +
+                        "limit 5");
+                while (resultSet.next()) {
+                    String name = resultSet.getString(1);
+                    int cities = resultSet.getInt(2);
+                    System.out.println( "Name= " + name + " Cities= "+cities);
+                }
+            } catch (SQLException ex) {
+                System.err.println("SQLException Message" + ex.getMessage());
+                System.err.println("SQLStatus" + ex.getSQLState());
+                System.err.println("SQLError" + ex.getErrorCode());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void showCountRegionsAndCitiesInCountry(Connection conn) {
         try (Statement statement = conn.createStatement()) {
             ResultSet resultSet = null;
             try {
