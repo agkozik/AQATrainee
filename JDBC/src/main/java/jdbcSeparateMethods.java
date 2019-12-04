@@ -1,6 +1,4 @@
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
@@ -11,7 +9,7 @@ public class jdbcSeparateMethods {
     public static void main(String[] args) {
         //createTableIfNotExist(initConnection());
         //addToBase(initConnection());
-        getSelect(initConnection());
+        getCountryByRegions(initConnection());
     }
 
     public static Connection initConnection() {
@@ -78,7 +76,7 @@ public class jdbcSeparateMethods {
         }
     }
 
-    public static void getSelect(Connection conn) {
+    public static void getCountryByRegions(Connection conn) {
         try (Statement statement = conn.createStatement()) {
             ResultSet resultSet = null;
             try {
@@ -100,12 +98,6 @@ public class jdbcSeparateMethods {
                 System.err.println("SQLException Message" + ex.getMessage());
                 System.err.println("SQLStatus" + ex.getSQLState());
                 System.err.println("SQLError" + ex.getErrorCode());
-            } finally {
-                if (resultSet != null) {
-                    resultSet.close();
-                } else {
-                    System.out.println("Ошибка чтения с Базы данных");
-                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
