@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.util.Scanner;
 
 public class JdbsPostgres {
     //Задаем параметры подключения к БД
@@ -15,7 +13,45 @@ public class JdbsPostgres {
 
     public static void main(String[] args) throws ClassNotFoundException, IOException, SQLException {
         //getConnection();
-        getStatement();
+        //getStatement();
+        executePreparedStatement();
+    }
+
+    //Подготовленный запрос PreparedStatement
+    public static void executePreparedStatement() throws SQLException {
+        try (Connection connection = DriverManager.getConnection(URL + BASENAME, LOGIN, PASSWORD);
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO transact (id, age, firstname, lastname, phone) VALUES (?,?,?,?,?)")) {
+            ps.setInt(1, 3);
+            ps.setInt(2, 60);
+            ps.setString(3, "Galya");
+            ps.setString(4, "Lukashen");
+            ps.setString(5, "+375297777773");
+            ps.executeUpdate();
+
+            ResultSet resultSet = null;
+            try (PreparedStatement pr = connection.prepareStatement("SELECT * FROM transact")) {
+                resultSet = pr.executeQuery();
+                while (resultSet.next()) {
+                    int id = resultSet.getInt(1);
+                    int age = resultSet.getInt(2);
+                    String fName = resultSet.getString(3);
+                    String lName = resultSet.getString(4);
+                    String phone = resultSet.getString(5);
+                    System.out.println("id =" + id + " age =" + age + " fName =" + fName + " lName =" + lName + " Phone =" + phone);
+                }
+            }
+            CallableStatement cs = null;
+            try {
+                cs = connection.prepareCall("{ ? = call showCountOfTransact() }");
+                cs.registerOutParameter(1, Types.BIGINT);
+                cs.execute();
+                System.out.println("Количество строк в таблице: "+cs.getInt(1));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                cs.close();
+            }
+        }
     }
 
     public static void getConnection() throws ClassNotFoundException {
@@ -33,9 +69,7 @@ public class JdbsPostgres {
     }
 
     public static void getStatement() throws ClassNotFoundException, SQLException, IOException {
-
         Class.forName("org.postgresql.Driver");
-
         try (Connection conn = DriverManager.getConnection(URL + BASENAME, LOGIN, PASSWORD);
              BufferedReader sqlFile = new BufferedReader(new FileReader(COMMANDSFILE));
              Statement statement = conn.createStatement()) {
@@ -51,9 +85,7 @@ public class JdbsPostgres {
                 }
             } catch (SQLException ex) {
                 System.err.println("SQLException Message" + ex.getMessage());
-                //Статус
                 System.err.println("SQLStatus" + ex.getSQLState());
-                //номер Ошибки
                 System.err.println("SQLEror" + ex.getErrorCode());
             } finally {
                 if (resultSet != null) {
