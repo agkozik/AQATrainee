@@ -3,19 +3,19 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class jdbcSeparateMethods {
+public class JdbcSeparateMethods {
     static Connection conn;
 
     public static void main(String[] args) {
-        conn=initConnection();
-        createTableIfNotExist(conn);
-        addToBase(conn);
-        showCountRegionsAndCitiesInCountry(conn);
-        top5countriesWithTheBiggestAmountOfCities(conn);
-        top5countriesWithTheBiggestAmountOfRegions(conn);
+//        conn=initConnection();
+//        createTableIfNotExist(conn);
+//        addToBase(conn);
+//        showCountRegionsAndCitiesInCountry(conn);
+//        top5countriesWithTheBiggestAmountOfCities(conn);
+//        top5countriesWithTheBiggestAmountOfRegions(conn);
     }
 
-    public static Connection initConnection() {
+    public Connection initConnection() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -74,7 +74,6 @@ public class jdbcSeparateMethods {
             }
         } catch (Exception ex) {
             System.out.println("Connection failed...");
-
             System.out.println(ex);
         }
     }
