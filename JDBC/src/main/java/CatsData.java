@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 /*
 1) Взять класс сущности и унаследоваться от нее, создать класс Кот с неким набором характеристик
@@ -14,16 +15,19 @@ public class CatsData {
     static PreparedStatement preparedStatement;
 
     public static void main(String[] args) {
+        Cat tomCat = new Cat("Tom", "Grey", 1);
+        Cat boris = new Cat("Boris", "Black", 1);
+        Cat alica = new Cat("Alica", "White", 1);
         JdbcSeparateMethods jdbcSeparateMethods = new JdbcSeparateMethods();
         conn = jdbcSeparateMethods.initConnection();
         createTableWithCats(conn);
         cleanTable(conn);
         showAllInfoFromCatsTable();
-        addCatToTableCats(conn, "Tom", "Yellow", 3);
+        addCatToTableCats(conn, tomCat);
+        addCatToTableCats(conn, boris);
+        addCatToTableCats(conn, alica);
         showAllInfoFromCatsTable();
-        addCatToTableCats(conn, "Boris", "Black", 1);
-        showAllInfoFromCatsTable();
-        addCatToTableCats(conn, "Alica", "White", 5);
+        showListOfCats();
         showAllInfoFromCatsTable();
         updateTransactionCommitAsResultAutoCommitTrueBatch(conn, 1, 3);
         showAllInfoFromCatsTable();
@@ -66,13 +70,33 @@ public class CatsData {
         }
     }
 
-    public static void addCatToTableCats(Connection conn, String name, String color, int age) {
+    public static void showListOfCats() {
+        ArrayList<Cat> cats = new ArrayList<>();
+        ResultSet resultSet = null;
+        try (Statement statement = conn.createStatement()) {
+            resultSet = statement.executeQuery("select * FROM viewcats");
+            while (resultSet.next()) {
+                String name = resultSet.getString(2);
+                String color = resultSet.getString(3);
+                int age = resultSet.getInt(4);
+                Cat cat = new Cat(name, color, age);
+                cats.add(cat);
+            }
+        } catch (SQLException ex) {
+            System.err.println("SQLException Message" + ex.getMessage());
+            System.err.println("SQLStatus" + ex.getSQLState());
+            System.err.println("SQLError" + ex.getErrorCode());
+        }
+            System.out.println(cats.toString());
+    }
+
+    public static void addCatToTableCats(Connection conn, Cat cat) {
         try {
             String sql = "INSERT INTO cats ( name, color, age) Values (?,?,?)";
             preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, color);
-            preparedStatement.setInt(3, age);
+            preparedStatement.setString(1, cat.getName());
+            preparedStatement.setString(2, cat.getColor());
+            preparedStatement.setInt(3, cat.getAge());
             int rows = preparedStatement.executeUpdate();
             System.out.printf("\n%d rows added to table", rows);
         } catch (SQLException e) {
@@ -80,7 +104,8 @@ public class CatsData {
         }
     }
 
-    public static void updateTransactionCommitAsResultAutoCommitFalse(Connection conn, int idItemToUpdate1, int idItemToUpdate2) {
+    public static void updateTransactionCommitAsResultAutoCommitFalse(Connection conn, int idItemToUpdate1,
+                                                                      int idItemToUpdate2) {
         try (Statement statement = conn.createStatement()) {
             String sql1 = "UPDATE cats SET name='Matroskin1_Updated', color='Striped:White-Blue',age=5 WHERE id=1";
             String sql3 = "UPDATE cats SET name='Matroskin3_Updated', color='Striped:White-Blue',age=4 WHERE id=3";
@@ -95,7 +120,8 @@ public class CatsData {
         }
     }
 
-    public static void updateTransactionCommitAsResultAutoCommitTrueBatch(Connection conn, int idItemToUpdate1, int idItemToUpdate2) {
+    public static void updateTransactionCommitAsResultAutoCommitTrueBatch(Connection conn, int idItemToUpdate1,
+                                                                          int idItemToUpdate2) {
         try (Statement statement = conn.createStatement()) {
             String sql1 = "UPDATE cats SET name='Matroskin1_BATCH_Updated', color='Striped:White-Blue',age=5 WHERE id=1";
             String sql3 = "UPDATE cats SET name='Matroskin1_BATCH_Updated', color='Striped:White-Blue',age=4 WHERE id=3";
