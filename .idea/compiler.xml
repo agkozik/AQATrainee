@@ -9,6 +9,7 @@
         <module name="JDBC" />
         <module name="JsonParsersTrainee" />
         <module name="RF" />
+        <module name="mailSender" />
       </profile>
     </annotationProcessing>
   </component>

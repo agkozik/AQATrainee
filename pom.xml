@@ -13,6 +13,7 @@
         <module>JsonParsersTrainee</module>
         <module>JDBC</module>
         <module>RF</module>
+        <module>mailSender</module>
     </modules>
 
 </project>
