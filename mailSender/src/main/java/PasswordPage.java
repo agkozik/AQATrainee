@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class PasswordPage {
     private WebDriver driver;
     private final int WAIT_SEC=25;
-    private static String PASSWORD = "";
+    private static String PASSWORD = "qareceivemail111111";
 
     @FindBy(className= "passp-sign-in-button")
     WebElement signInButton;

@@ -1,5 +1,4 @@
-import lombok.Getter;
-import lombok.Setter;
+import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +7,6 @@ import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -17,7 +15,7 @@ public class StartTests {
     private static final String URL = "https://yandex.by";
     private Date dateNow = new Date();
     private SimpleDateFormat formatForDateNow = new SimpleDateFormat("E dd.MM.yyyy");
-    private String stringToCompare = ("Тело письма: 'Нет тела - нет дела.'\n"+ formatForDateNow.format(dateNow));
+    private String stringToCompare = ("Тело письма: 'Нет тела - нет дела.'\n" + formatForDateNow.format(dateNow));
 
     @BeforeEach
     void getBrowserInstance() {
@@ -36,7 +34,7 @@ public class StartTests {
 
     @Test
     @Order(1)
-    //@Ignore
+    @Ignore
     void sendMail() {
         MailPage mailPage = new MailPage(driver);
         mailPage.clickSignIn()
@@ -63,7 +61,7 @@ public class StartTests {
                 .clickOnOutgoingButton()
                 .clickOnLastOutgoingMail()
                 .getMailBodyContent().getText();
-        assertTrue(list.contains(stringToCompare),"Expected: \n"+stringToCompare+"\nActual: \n"+list);
+        assertTrue(list.contains(stringToCompare), "Expected: \n" + stringToCompare + "\nActual: \n" + list);
     }
 
     @AfterEach
