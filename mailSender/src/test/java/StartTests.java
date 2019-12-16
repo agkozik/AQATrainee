@@ -27,6 +27,7 @@ public class StartTests {
     @BeforeEach
     void getBrowserInstance() {
         if (driver == null) {
+            System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
@@ -41,7 +42,6 @@ public class StartTests {
 
     @Test
     @Order(1)
-    @Ignore
     void sendMail() {
         MailPage mailPage = new MailPage(driver);
         mailPage.clickSignIn()
