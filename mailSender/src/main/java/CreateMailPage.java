@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CreateMailPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC = 25;
 
     private Date dateNow = new Date();

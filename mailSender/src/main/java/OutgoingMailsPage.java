@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OutgoingMailsPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC=25;
 
     @FindBy(xpath = "//div[contains(@class,'ns-view-messages-item-wrap')][1]//a")

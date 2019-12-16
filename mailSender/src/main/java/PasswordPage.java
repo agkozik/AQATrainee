@@ -6,10 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Scanner;
+
 public class PasswordPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC=25;
-    static String PASSWORD = "testsendingmail111111";
+    private static String PASSWORD = "";
 
     @FindBy(className= "passp-sign-in-button")
     WebElement signInButton;

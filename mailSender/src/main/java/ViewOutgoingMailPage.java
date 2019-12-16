@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 public class ViewOutgoingMailPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC=25;
     List<String> listBodyText=new ArrayList<>();
 

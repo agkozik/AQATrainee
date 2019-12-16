@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
-    WebDriver driver;
+    private WebDriver driver;
     private static String LOGIN = "testsendingmail";
     private final int WAIT_SEC=25;
 

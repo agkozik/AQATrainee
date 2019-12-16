@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountMailPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC=25;
 
     @FindBy(className = "js-main-action-compose")

@@ -6,14 +6,22 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
 import java.awt.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Main {
     private static WebDriver driver;
     private static final String URL = "https://yandex.by";
+
+    @BeforeAll
+    static void getBrowserInstance() {
+        if (driver == null) {
+            driver = new ChromeDriver();
+        }
+        driver.manage().window().maximize();
+        driver.get(URL);
+    }
 
     @BeforeEach
     void hideMousePointer() throws AWTException {
@@ -21,20 +29,11 @@ public class Main {
         bot.mouseMove(0, 0);
     }
 
-    @BeforeAll
-    static void getBrowserInstance(){
-        if (driver == null){
-            driver = new ChromeDriver();
-        }
-        driver.manage().window().maximize();
-        driver.get(URL);
-    }
-
     @Test
     @Ignore
-    void sendMail(){
+    void sendMail() {
         MailPage mailPage = new MailPage(driver);
-                mailPage.clickSignIn()
+        mailPage.clickSignIn()
                 .enterLogin()
                 .clickLoginNextButton()
                 .enterPassword()
@@ -50,9 +49,9 @@ public class Main {
     }
 
     @Test
-    void checkIfMailWasSended(){
+    void checkIfMailWasSended() {
         MailPage mailPage = new MailPage(driver);
-                String list = mailPage.clickSignIn()
+        String list = mailPage.clickSignIn()
                 .enterLogin()
                 .clickLoginNextButton()
                 .enterPassword()
@@ -65,8 +64,8 @@ public class Main {
     }
 
     @AfterAll
-    static void closeBrowser(){
+    static void closeBrowser() {
         driver.quit();
-        driver=null;
+        driver = null;
     }
 }

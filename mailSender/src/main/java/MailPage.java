@@ -7,17 +7,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MailPage {
-    WebDriver driver;
+    private WebDriver driver;
     private final int WAIT_SEC=25;
+    @FindBy(className = "desk-notif-card__login-enter-expanded")
+    WebElement signInButton;
 
     public MailPage(WebDriver driver) {
         this.driver = driver;
         new WebDriverWait(driver,WAIT_SEC).until(ExpectedConditions.elementToBeClickable(By.className("desk-notif-card__login-enter-expanded")));
         PageFactory.initElements(driver,this);
     }
-
-    @FindBy(className = "desk-notif-card__login-enter-expanded")
-    WebElement signInButton;
 
     public LoginPage clickSignIn() {
         signInButton.click();
