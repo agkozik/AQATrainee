@@ -1,5 +1,3 @@
-package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,27 +8,36 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountMailPage {
     WebDriver driver;
+    private final int WAIT_SEC=25;
 
     @FindBy(className = "js-main-action-compose")
     WebElement createMailButton;
 
+    @FindBy(xpath = "//a[@data-params='fid=1']")
+    WebElement inboxMailButton;
+
+    @FindBy(xpath = "//a[@data-params='fid=4']")
+    WebElement outgoingMail;
+
     public AccountMailPage(WebDriver driver) {
         this.driver = driver;
-        new WebDriverWait(driver,5)
+        new WebDriverWait(driver,WAIT_SEC)
                 .until(ExpectedConditions.elementToBeClickable(By.className("js-main-action-compose")));
         PageFactory.initElements(driver, this);
     }
 
-    public void clickCreateMail() {
+    public CreateMailPage clickCreateMail() {
         createMailButton.click();
+        return new CreateMailPage(driver);
     }
 
-    public AccountMailPage init(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    public AccountMailPage clickOnInboxButton(){
+        inboxMailButton.click();
         return this;
     }
 
-    public WebElement getCreateMailButton() {
-        return createMailButton;
+    public OutgoingMailsPage clickOnOutgoingButton(){
+        outgoingMail.click();
+        return new OutgoingMailsPage(driver);
     }
 }

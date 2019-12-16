@@ -1,5 +1,3 @@
-package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
-    static String LOGIN = "testsendingmail";
     WebDriver driver;
+    private static String LOGIN = "testsendingmail";
+    private final int WAIT_SEC=25;
 
     @FindBy(id= "passp-field-login")
     WebElement emailField;
@@ -19,7 +18,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        new WebDriverWait(driver,5)
+        new WebDriverWait(driver,WAIT_SEC)
                 .until(ExpectedConditions.elementToBeClickable(By.id("passp-field-login")));
         PageFactory.initElements(driver, this);
     }
