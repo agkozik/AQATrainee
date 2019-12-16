@@ -8,7 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+/*
+Задача:
+1) Залогаться в почтовом ящике
+2) НАписать письмо, указав кому, тему и тело(любой шаблон, который содержит дату и время, подпись отправителя)
+3) Проверить что письмо отправлено
 
+
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StartTests {
     private WebDriver driver;
