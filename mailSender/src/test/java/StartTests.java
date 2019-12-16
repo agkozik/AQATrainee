@@ -1,23 +1,26 @@
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import lombok.Getter;
+import lombok.Setter;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Main {
-    private static WebDriver driver;
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class StartTests {
+    private WebDriver driver;
     private static final String URL = "https://yandex.by";
+    private Date dateNow = new Date();
+    private SimpleDateFormat formatForDateNow = new SimpleDateFormat("E dd.MM.yyyy");
+    private String stringToCompare = ("Тело письма: 'Нет тела - нет дела.'\n"+ formatForDateNow.format(dateNow));
 
-    @BeforeAll
-    static void getBrowserInstance() {
+    @BeforeEach
+    void getBrowserInstance() {
         if (driver == null) {
             driver = new ChromeDriver();
         }
@@ -32,7 +35,8 @@ public class Main {
     }
 
     @Test
-    @Ignore
+    @Order(1)
+    //@Ignore
     void sendMail() {
         MailPage mailPage = new MailPage(driver);
         mailPage.clickSignIn()
@@ -44,13 +48,11 @@ public class Main {
                 .enterAddressToSend()
                 .enterMailSubject()
                 .enterMailBody()
-                .clickNotifyMeButton()
-                .clickSendMail()
-                .clickOnOutgoingButton()
-                .clickOnLastOutgoingMail();
+                .clickSendMail();
     }
 
     @Test
+    @Order(2)
     void checkIfMailWasSent() {
         MailPage mailPage = new MailPage(driver);
         String list = mailPage.clickSignIn()
@@ -61,15 +63,12 @@ public class Main {
                 .clickOnOutgoingButton()
                 .clickOnLastOutgoingMail()
                 .getMailBodyContent().getText();
-        System.out.println(list);
-        assertTrue(list.contains("16.12.2019"));
+        assertTrue(list.contains(stringToCompare),"Expected: \n"+stringToCompare+"\nActual: \n"+list);
     }
 
-    @AfterAll
-    static void closeBrowser() {
+    @AfterEach
+    void closeBrowser() {
         driver.quit();
         driver = null;
     }
-
-
 }

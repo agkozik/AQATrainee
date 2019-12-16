@@ -22,7 +22,7 @@ public class AccountMailPage {
     public AccountMailPage(WebDriver driver) {
         this.driver = driver;
         new WebDriverWait(driver,WAIT_SEC)
-                .until(ExpectedConditions.elementToBeClickable(By.className("js-main-action-compose")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-params='fid=4']")));
         PageFactory.initElements(driver, this);
     }
 

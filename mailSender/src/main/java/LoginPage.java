@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     private WebDriver driver;
-    private static String LOGIN = "testsendingmail";
+    private static String LOGIN = "qareceivemail";
     private final int WAIT_SEC=25;
 
     @FindBy(id= "passp-field-login")

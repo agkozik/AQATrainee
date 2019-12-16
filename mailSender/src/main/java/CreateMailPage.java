@@ -1,3 +1,5 @@
+import lombok.Data;
+import lombok.Getter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -6,7 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@Data
+@Getter
 public class CreateMailPage {
     private WebDriver driver;
     private final int WAIT_SEC = 25;
@@ -22,7 +25,7 @@ public class CreateMailPage {
 
     @FindBy(xpath = "//div[@class='mail-Compose-Field-Input']//div[@name='to']")
     WebElement sendtoField;
-    @FindBy(xpath = "//input[@name='subj-de1095455d1c47938e244f3f312d07946394ad5e']")
+    @FindBy(xpath = "//div[@class='mail-Compose-Field-Input']/input[@type='text']")
     WebElement mailSubjectField;
     @FindBy(xpath = "//*[@id='cke_1_contents']/div")
     WebElement mailBodyField;
@@ -39,7 +42,7 @@ public class CreateMailPage {
     }
 
     public CreateMailPage enterAddressToSend() {
-        sendtoField.sendKeys(sendToAdress);
+        sendtoField.sendKeys(sendToAdress, Keys.ENTER);
         return this;
     }
 
@@ -58,16 +61,10 @@ public class CreateMailPage {
         return this;
     }
 
-    public AccountMailPage clickSendMail() {
+    public void clickSendMail() {
         sendMailButton.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(driver.findElements(By.xpath("//*[@class='_nb-modal-popup']/div/a")).size()>0){
+            driver.findElement(By.xpath("//*[@class='_nb-modal-popup']/div/a")).click();
         }
-        if(driver.findElements(By.xpath("//*[@class='nb-popup _nb-modal-popup _init _nb-popup ui-dialog-content ui-widget-content']/div/a")).size()>0){
-            driver.findElement(By.xpath("//*[@class='nb-popup _nb-modal-popup _init _nb-popup ui-dialog-content ui-widget-content']/div/a")).click();
-        }
-        return new AccountMailPage(driver);
     }
 }

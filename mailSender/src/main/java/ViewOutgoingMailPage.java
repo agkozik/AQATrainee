@@ -18,11 +18,12 @@ public class ViewOutgoingMailPage {
 
     public ViewOutgoingMailPage(WebDriver driver) {
         this.driver = driver;
-        new WebDriverWait(driver, WAIT_SEC).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@dir='ltr']")));
+        new WebDriverWait(driver, WAIT_SEC).until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//div[contains(@class,'ns-view-message-body')]")));
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(xpath = "//div[@dir='ltr']")
+    @FindBy(xpath = "//div[contains(@class,'ns-view-message-body')]")
     WebElement mailBodyContent;
 
     public List<String> getListFromMailBody(){

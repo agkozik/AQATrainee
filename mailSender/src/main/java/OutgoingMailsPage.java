@@ -16,8 +16,7 @@ public class OutgoingMailsPage {
     public OutgoingMailsPage(WebDriver driver) {
         this.driver = driver;
         new WebDriverWait(driver,WAIT_SEC)
-                .until(ExpectedConditions.elementToBeClickable(By
-                        .xpath("//div[contains(@class,'ns-view-messages-item-wrap')][1]//a")));
+                .until(ExpectedConditions.titleContains("Отправленные"));
         PageFactory.initElements(driver, this);
     }
 
