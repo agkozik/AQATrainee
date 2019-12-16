@@ -14,7 +14,7 @@ import java.util.List;
 public class ViewOutgoingMailPage {
     private WebDriver driver;
     private final int WAIT_SEC=25;
-    List<String> listBodyText=new ArrayList<>();
+    private List<String> listBodyText=new ArrayList<>();
 
     public ViewOutgoingMailPage(WebDriver driver) {
         this.driver = driver;
@@ -25,8 +25,9 @@ public class ViewOutgoingMailPage {
     @FindBy(xpath = "//div[@dir='ltr']")
     WebElement mailBodyContent;
 
-    public String getListFromMailBody(){
+    public List<String> getListFromMailBody(){
         String bodyText = mailBodyContent.getText();
-        return bodyText;
+        listBodyText.add(bodyText);
+        return listBodyText;
     }
 }

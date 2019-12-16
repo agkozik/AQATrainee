@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -49,7 +51,7 @@ public class Main {
     }
 
     @Test
-    void checkIfMailWasSended() {
+    void checkIfMailWasSent() {
         MailPage mailPage = new MailPage(driver);
         String list = mailPage.clickSignIn()
                 .enterLogin()
@@ -68,4 +70,6 @@ public class Main {
         driver.quit();
         driver = null;
     }
+
+
 }
