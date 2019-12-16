@@ -13,8 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 1) Залогаться в почтовом ящике
 2) НАписать письмо, указав кому, тему и тело(любой шаблон, который содержит дату и время, подпись отправителя)
 3) Проверить что письмо отправлено
-
-
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StartTests {
@@ -41,7 +39,8 @@ public class StartTests {
     }
 
     @Test
-    @Order(1)
+    @Ignore
+        //@Order(1)
     void sendMail() {
         MailPage mailPage = new MailPage(driver);
         mailPage.clickSignIn()
