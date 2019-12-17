@@ -62,7 +62,12 @@
             <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
         <!--               TestNG dependency                   -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -71,7 +76,6 @@
             <scope>test</scope>
         </dependency>
         <!--               TestNG dependency                   -->
-
     </dependencies>
     <build>
         <plugins>
@@ -114,15 +118,8 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <!--                 TestNG XML            -->
-                    <suiteXmlFiles>
-                        <suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <!--                 TestNG XML            -->
 
-                    <systemPropertyVariables>
-                        <executionBrowser>${browser}</executionBrowser>
-                       <appURL>${urlToBeTested}</appURL>
+                    <systemPropertyVariables>-->
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
