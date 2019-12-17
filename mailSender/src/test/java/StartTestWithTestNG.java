@@ -1,46 +1,42 @@
-import org.junit.Ignore;
-import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testng.Assert.assertTrue;
 /*
 Задача:
 1) Залогаться в почтовом ящике
 2) НАписать письмо, указав кому, тему и тело(любой шаблон, который содержит дату и время, подпись отправителя)
 3) Проверить что письмо отправлено
- */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class StartTests {
+*/
+public class StartTestWithTestNG {
     private WebDriver driver;
-    private static final String URL = "https://yandex.by";
+    private final String URL = "https://yandex.by";
     private Date dateNow = new Date();
     private SimpleDateFormat formatForDateNow = new SimpleDateFormat("E dd.MM.yyyy");
     private String stringToCompare = ("Тело письма: 'Нет тела - нет дела.'\n" + formatForDateNow.format(dateNow));
 
-    @BeforeEach
+    @BeforeMethod
     void getBrowserInstance() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
         driver.get(URL);
     }
 
-    @BeforeEach
+    @BeforeMethod
     void hideMousePointer() throws AWTException {
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }
 
-    @Test
-    @Ignore
-        //@Order(1)
+    @Test(priority = 1)
     void sendMail() {
         MailPage mailPage = new MailPage(driver);
         mailPage.clickSignIn()
@@ -55,8 +51,7 @@ public class StartTests {
                 .clickSendMail();
     }
 
-    @Test
-    @Order(2)
+    @Test(priority = 2)
     void checkIfMailWasSent() {
         MailPage mailPage = new MailPage(driver);
         String list = mailPage.clickSignIn()
@@ -67,10 +62,10 @@ public class StartTests {
                 .clickOnOutgoingButton()
                 .clickOnLastOutgoingMail()
                 .getMailBodyContent().getText();
-        assertTrue(list.contains(stringToCompare), "Expected: \n" + stringToCompare + "\nActual: \n" + list);
+        assertTrue(list.contains(stringToCompare), "\nExpected: \n" + stringToCompare + "\nActual: \n" + list);
     }
 
-    @AfterEach
+    @AfterMethod
     void closeBrowser() {
         driver.quit();
         driver = null;

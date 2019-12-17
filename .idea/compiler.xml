@@ -12,5 +12,8 @@
         <module name="mailSender" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sendMailTestNG" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

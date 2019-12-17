@@ -62,7 +62,7 @@ public class CreateMailPage {
     }
 
     public void clickSendMail() {
-        sendMailButton.click();
+        //sendMailButton.click();
         if(driver.findElements(By.xpath("//*[@class='_nb-modal-popup']/div/a")).size()>0){
             driver.findElement(By.xpath("//*[@class='_nb-modal-popup']/div/a")).click();
         }
