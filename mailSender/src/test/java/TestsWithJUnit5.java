@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 3) Проверить что письмо отправлено
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class StartTestsWithJUnit5 {
+public class TestsWithJUnit5 {
     private WebDriver driver;
     private static final String URL = "https://yandex.by";
     private Date dateNow = new Date();
