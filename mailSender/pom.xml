@@ -116,12 +116,13 @@
                     </argLine>
                     <!--                 TestNG XML            -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
                     </suiteXmlFiles>
                     <!--                 TestNG XML            -->
 
-                    <systemPropertyVariables>-->
-                        <propertyName>firefox</propertyName> <!-- Specifying Test Parameters -->
+                    <systemPropertyVariables>
+                        <executionBrowser>${browser}</executionBrowser>
+                       <appURL>${urlToBeTested}</appURL>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
