@@ -1,3 +1,5 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,32 +8,30 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Scanner;
-
-public class PasswordPage {
+public class LoginPage {
     private WebDriver driver;
+    private static String LOGIN = "qareceivemail";
     private final int WAIT_SEC=25;
-    private static String PASSWORD = "qareceivemail111111";
 
-    @FindBy(className= "passp-sign-in-button")
+    @FindBy(id= "passp-field-login")
+    WebElement emailField;
+    @FindBy(xpath = "//div[@class='passp-button passp-sign-in-button']")
     WebElement signInButton;
-    @FindBy(id = "passp-field-passwd")
-    WebElement passwordField;
 
-    public PasswordPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         new WebDriverWait(driver,WAIT_SEC)
-                .until(ExpectedConditions.elementToBeClickable(By.id("passp-field-passwd")));
+                .until(ExpectedConditions.elementToBeClickable(By.id("passp-field-login")));
         PageFactory.initElements(driver, this);
     }
 
-    public PasswordPage enterPassword() {
-        passwordField.sendKeys(PASSWORD);
+    public LoginPage enterLogin() {
+        emailField.sendKeys(LOGIN);
         return this;
     }
 
-    public AccountMailPage clickPasswordNextButton() {
+    public PasswordPage clickLoginNextButton() {
         signInButton.click();
-        return new AccountMailPage(driver);
+        return new PasswordPage(driver);
     }
 }

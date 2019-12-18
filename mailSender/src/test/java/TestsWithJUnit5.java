@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.MailPage;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -26,7 +27,7 @@ public class TestsWithJUnit5 {
 
     @BeforeEach
     void getBrowserInstance() {
-        if (driver == null) {
+        if (Objects.isNull(driver)) {
             System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         }
@@ -76,8 +77,7 @@ public class TestsWithJUnit5 {
     @Order(3)
     void checkIfMailWasSentStreamAPI() {
         MailPage mailPage = new MailPage(driver);
-        ArrayList<String> st= new ArrayList<>();
-
+        ArrayList<String> st = new ArrayList<>();
         st = mailPage
                 .clickSignIn()
                 .enterLogin()
@@ -87,8 +87,8 @@ public class TestsWithJUnit5 {
                 .clickOnOutgoingButton()
                 .clickOnLastOutgoingMail()
                 .getListFromMailBody();
-st.stream().forEach(s -> System.out.println(s));
-st.stream().filter(s -> s.contains(stringToCompare));
+        st.forEach(System.out::println);
+        st.stream().filter(s -> s.contains(stringToCompare));
     }
 
     @AfterEach
