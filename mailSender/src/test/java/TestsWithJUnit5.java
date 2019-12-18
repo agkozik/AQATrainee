@@ -1,12 +1,15 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /*
 Задача:
 1) Залогаться в почтовом ящике
@@ -24,7 +27,7 @@ public class TestsWithJUnit5 {
     @BeforeEach
     void getBrowserInstance() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
@@ -36,6 +39,7 @@ public class TestsWithJUnit5 {
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }
+
     //@Disabled("Отключен, т.к яндекс банит за спам, разрешено около 5 емайлов за день \nЕсли необходимо запустить - закомментировать строку @Disable")
     @Test
     @Order(1)
@@ -64,8 +68,27 @@ public class TestsWithJUnit5 {
                 .clickPasswordNextButton()
                 .clickOnOutgoingButton()
                 .clickOnLastOutgoingMail()
-                .getMailBodyContent().getText();
+                .getListFromMailBody().get(0);
         assertTrue(list.contains(stringToCompare), "\nExpected: \n" + stringToCompare + "\nActual: \n" + list);
+    }
+
+    @Test
+    @Order(3)
+    void checkIfMailWasSentStreamAPI() {
+        MailPage mailPage = new MailPage(driver);
+        ArrayList<String> st= new ArrayList<>();
+
+        st = mailPage
+                .clickSignIn()
+                .enterLogin()
+                .clickLoginNextButton()
+                .enterPassword()
+                .clickPasswordNextButton()
+                .clickOnOutgoingButton()
+                .clickOnLastOutgoingMail()
+                .getListFromMailBody();
+st.stream().forEach(s -> System.out.println(s));
+st.stream().filter(s -> s.contains(stringToCompare));
     }
 
     @AfterEach
