@@ -1,8 +1,10 @@
+package baseStream;
+
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class Main {
+public class BaseStreamApiOperations {
     public static void main(String[] args) {
         ArrayList<Integer> myList = new ArrayList<Integer>();
         myList.add(1);
@@ -45,8 +47,7 @@ public class Main {
 
         //Вывод только тех нечетных значений, которые больше 5
         Stream<Integer> oddVall =
-                myList
-                        .stream()
+                myList.stream()
                         .sorted()
                         .filter((n) -> (n % 2) == 1)
                         .filter((n) -> (n > 5));
@@ -54,7 +55,9 @@ public class Main {
         oddVall.forEach(System.out::print);
 
         //найти число 3 в списке
-        myList.stream().filter((n) -> (n == 3)).forEach(System.out::println);
+        myList.stream()
+                .filter((n) -> (n == 3))
+                .forEach(System.out::println);
 
         //перемножить все числа в списке (1й способ)
         int multiplyNumbers = myList.stream().reduce(1, (a, b) -> {
@@ -63,8 +66,10 @@ public class Main {
         });
         System.out.println(multiplyNumbers);
 
-        //перемножить все числа в списке (1й способ)
-        int addNumbers = myList.stream().reduce(0, (a, b) -> {
+        //сложить все числа в списке (1й способ)
+        int addNumbers = myList
+                .stream()
+                .reduce(0, (a, b) -> {
             if (a != 0 || b != 0) return a + b;
             else return 0;
         });
@@ -75,7 +80,7 @@ public class Main {
         multiplyObject.ifPresent(System.out::println);
 
         //перемножить все числа в списке (2й способ)
-        Optional<Integer> multiplyObject2 = myList.stream().reduce((a, b) -> a + b);
-        multiplyObject2.ifPresent(System.out::println);
+        Optional<Integer> addObject2 = myList.stream().reduce((a, b) -> a + b);
+        addObject2.ifPresent(System.out::println);
     }
 }
