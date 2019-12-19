@@ -18,16 +18,16 @@ public class Main {
 
         //отобразить (замапить) на новый поток данных
         //только имена и номера телефонов
-        Stream<NamePhone> shortList = myList.stream().map(
-                (item->new NamePhone(item.name,item.phoneNum))
-        );
+        Stream<NamePhone> shortList = myList
+                .stream()
+                .map((item->new NamePhone(item.name,item.phoneNum)));
         System.out.println("Подрезанный список: ");
         shortList.forEach(item->System.out.println(item.name + " "+item.phoneNum));
 
         // в следующем фрагменте кода для получения нового потока данных, содержащего только
         //элементы имени и номера телефона, совпадающие с именем "Джеймс' сначала вызывается метод fi1ter (),
         // а затем метод map ():
-        Stream<NamePhone> filteredList = myList.stream().filter(item->item.name=="Third")
+        Stream<NamePhone> filteredList = myList.stream().filter(item-> item.name.equals("Third"))
                 .map(item->new NamePhone(item.name,item.phoneNum));
         System.out.println("--------------------------------------------------");
         filteredList.forEach(i-> System.out.println(i.name+" "+i.phoneNum));
@@ -39,7 +39,8 @@ public class Main {
 //        OptionalInt numbers = intStream.reduce((a, b)->a+b);
 //        numbers.ifPresent(System.out::println);
 
-        //Достаем стринг из номера телефона, подрезаем пробелы, преобразуем в int и складываем
+        //Достаем стринг из номера телефона, подрезаем пробелы,
+        // преобразуем в double и складываем значения
         DoubleStream doubleStream = myList
                 .stream().map(s-> s.phoneNum.replaceAll(" ",""))
                 .mapToDouble(Double::parseDouble);
