@@ -14,6 +14,7 @@
         <module>JDBC</module>
         <module>RF</module>
         <module>mailSender</module>
+        <module>StreamAPIExamples</module>
     </modules>
 
 </project>
