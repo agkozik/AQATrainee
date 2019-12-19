@@ -82,27 +82,32 @@ public class CollectToList_Set_Linked {
         System.out.println("SplitIterator:");
         Stream<HandBook> handBookStream2 = myArrayList.stream();
         Spliterator<HandBook> splitIter = handBookStream2.spliterator();
-        //while (splitIter.tryAdvance(x -> System.out.println(x.name)));
-        splitIter.forEachRemaining((n)->System.out.println(n.name));
+        System.out.println("-----------------------tryAdvance------------------------------");
+//tryAdvance ()  возвращает логическое значение
+//false, если больше не остается элементов для обработки,
+        while (splitIter.tryAdvance(x -> System.out.println(x.name))) ;
+        System.out.println("-----------------------------------------------------");
+//forEachRemaining выполняет заданное действие над каждым необработанным эле­
+//ментом и затем производит возврат.
+        splitIter.forEachRemaining((n) -> System.out.println(n.name));
 
+        // trySplit()Этот метод разделяет итерируемые элементы на две части
+        // ( может иметь большое значение при параллельной обработке крупных массивов данных)
         System.out.println("-----------------------------------------------------");
         //Создать Stream
         Stream<HandBook> handBookStream3 = myArrayList.stream();
         //получить итератор-разделитель
         Spliterator<HandBook> splitItr = handBookStream3.spliterator();
         //разделить первый итератор
-        Spliterator<HandBook>  splititr2  = splitItr.trySplit();
-        if(splititr2!=null){
+        Spliterator<HandBook> splititr2 = splitItr.trySplit();
+        if (splititr2 != null) {
             System.out.println("Результат, выводимый итератором splitItr2: ");
-            splititr2.forEachRemaining((n)->System.out.println(n.name));
+            splititr2.forEachRemaining((n) -> System.out.println(n.name));
         }
         //а  теперь воспользоваться итератором splititr
         System.out.println("\nРезультат, выводимый итератором splitItr: ");
-        splitItr.forEachRemaining((n)->System.out.println(n.name));
+        splitItr.forEachRemaining((n) -> System.out.println(n.name));
 
         System.out.println("-----------------------------------------------------");
-
-
-
     }
 }
