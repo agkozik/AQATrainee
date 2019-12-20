@@ -20,6 +20,7 @@
         <module>PhoneValidator</module>
         <module>FileInputOutputException</module>
         <module>CompareStringStringBufferStringBuilder</module>
+        <module>CollectionsCompareTo</module>
     </modules>
 
 </project>

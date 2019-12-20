@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Test Suite" duration-ms="33649" started-at="2019-12-17T17:18:44 MSK" finished-at="2019-12-17T17:19:18 MSK">
+    <groups>
+    </groups>
+    <test name="C:/AND/AQATrainee/mailSender/src/test/java/TestWithTestNG.java" duration-ms="33649" started-at="2019-12-17T17:18:44 MSK" finished-at="2019-12-17T17:19:18 MSK">
+      <class name="TestWithTestNG">
+        <test-method status="PASS" signature="getBrowserInstance()[pri:0, instance:TestWithTestNG@2758fe70]" name="getBrowserInstance" is-config="true" duration-ms="8637" started-at="2019-12-17T17:18:44 MSK" finished-at="2019-12-17T17:18:53 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBrowserInstance -->
+        <test-method status="PASS" signature="hideMousePointer()[pri:0, instance:TestWithTestNG@2758fe70]" name="hideMousePointer" is-config="true" duration-ms="68" started-at="2019-12-17T17:18:53 MSK" finished-at="2019-12-17T17:18:53 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hideMousePointer -->
+        <test-method status="PASS" signature="sendMail()[pri:1, instance:TestWithTestNG@2758fe70]" name="sendMail" duration-ms="10383" started-at="2019-12-17T17:18:53 MSK" finished-at="2019-12-17T17:19:03 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendMail -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestWithTestNG@2758fe70]" name="closeBrowser" is-config="true" duration-ms="768" started-at="2019-12-17T17:19:03 MSK" finished-at="2019-12-17T17:19:04 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="getBrowserInstance()[pri:0, instance:TestWithTestNG@2758fe70]" name="getBrowserInstance" is-config="true" duration-ms="6389" started-at="2019-12-17T17:19:04 MSK" finished-at="2019-12-17T17:19:10 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBrowserInstance -->
+        <test-method status="PASS" signature="hideMousePointer()[pri:0, instance:TestWithTestNG@2758fe70]" name="hideMousePointer" is-config="true" duration-ms="1" started-at="2019-12-17T17:19:10 MSK" finished-at="2019-12-17T17:19:10 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hideMousePointer -->
+        <test-method status="PASS" signature="checkIfMailWasSent()[pri:2, instance:TestWithTestNG@2758fe70]" name="checkIfMailWasSent" duration-ms="6641" started-at="2019-12-17T17:19:10 MSK" finished-at="2019-12-17T17:19:17 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkIfMailWasSent -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestWithTestNG@2758fe70]" name="closeBrowser" is-config="true" duration-ms="717" started-at="2019-12-17T17:19:17 MSK" finished-at="2019-12-17T17:19:18 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestWithTestNG -->
+    </test> <!-- C:/AND/AQATrainee/mailSender/src/test/java/TestWithTestNG.java -->
+  </suite> <!-- All Test Suite -->
+</testng-results>

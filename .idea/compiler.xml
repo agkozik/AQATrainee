@@ -14,6 +14,7 @@
         <module name="CalculatorInput" />
         <module name="FileInputOutputException" />
         <module name="PhoneValidator" />
+        <module name="CollectionsCompareTo" />
         <module name="StreamAPIExamples" />
         <module name="HeroesOfSwordAndMagicConsoleEdition" />
       </profile>
