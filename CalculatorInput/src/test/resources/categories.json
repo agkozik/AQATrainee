@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Ignored tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Успешно пройден",
+    "matchedStatuses": ["passed",""]
+     },
+  {
+    "name": "Outdated tests",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*FileNotFoundException.*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed","FAILURE","FAILURE!"]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["broken"]
+  }
+]

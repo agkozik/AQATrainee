@@ -15,6 +15,11 @@
         <module>RF</module>
         <module>mailSender</module>
         <module>StreamAPIExamples</module>
+        <module>CalculatorInput</module>
+        <module>HeroesOfSwordAndMagicConsoleEdition</module>
+        <module>PhoneValidator</module>
+        <module>FileInputOutputException</module>
+        <module>CompareStringStringBufferStringBuilder</module>
     </modules>
 
 </project>
