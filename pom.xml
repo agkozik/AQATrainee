@@ -21,7 +21,6 @@
         <module>FileInputOutputException</module>
         <module>CompareStringStringBufferStringBuilder</module>
         <module>CollectionsCompareTo</module>
-        <module>Hibernate</module>
     </modules>
 
 </project>

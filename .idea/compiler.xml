@@ -17,7 +17,6 @@
         <module name="CollectionsCompareTo" />
         <module name="StreamAPIExamples" />
         <module name="HeroesOfSwordAndMagicConsoleEdition" />
-        <module name="Hibernate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

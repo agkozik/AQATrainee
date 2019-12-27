@@ -4,7 +4,7 @@
     <data-source source="LOCAL" name="testbase@localhost" uuid="1131d629-e91f-468c-9374-d7347aed92bd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>User - postgres Password root</remarks>
+      <remarks>User - postgres</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/testbase</jdbc-url>
     </data-source>
