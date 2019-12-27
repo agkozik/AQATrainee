@@ -33,5 +33,4 @@ public class FirstHibernate {
         session.getTransaction().commit();
         session.close();
     }
-
 }
