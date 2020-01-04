@@ -22,6 +22,7 @@
         <module>CompareStringStringBufferStringBuilder</module>
         <module>CollectionsCompareTo</module>
         <module>Hibernate</module>
+        <module>SeleniumWorkWithTable</module>
     </modules>
 
 </project>

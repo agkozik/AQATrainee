@@ -41,13 +41,13 @@ public class Animal implements Comparable<Animal>{
 //
 //        }
         ListIterator<Animal> listIterator=animals.listIterator();
-        while(listIterator.hasNext()){
-            System.out.println(listIterator.next());
+//        while(listIterator.hasNext()){
+//            System.out.println(listIterator.next());
+//
+//            listIterator.remove();
+//        }
 
-            listIterator.remove();
-        }
-
-        listIterator.set(animals.get(2));
+//        listIterator.set(animals.get(2));
         while(listIterator.hasPrevious()){
             System.out.println(listIterator.previous());
         }
