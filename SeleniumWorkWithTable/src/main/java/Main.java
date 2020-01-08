@@ -11,9 +11,9 @@ public class Main {
     static WebDriver driver;
 
     public static void main(String[] args) {
-        driver = new ChromeDriver();
-        //driver = new FirefoxDriver();
-
+        //driver = new ChromeDriver();
+        System.setProperty("webdriver.gecko.driver","c:\\webdrivers\\geckodriver.exe");
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com/sql/sql_syntax.asp");
 
