@@ -39,6 +39,7 @@ public class MacbookPro16PriceParser {
                 .initPage(driver, WAITSEC)
                 .clickOnManufacturerCheckBox()
                 .clickOnScreensSizeCheckBox()
+                .chooseDeliveryTerm()
                 .getTheCheapestProduct();
         dataLinkPrice.put(yandexMarketGoodsPage.getKey(), yandexMarketGoodsPage.getValue());
     }

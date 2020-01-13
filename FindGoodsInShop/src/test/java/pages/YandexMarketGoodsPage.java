@@ -29,14 +29,19 @@ public class YandexMarketGoodsPage {
     @FindBy(xpath = "//fieldset[@data-autotest-id='7893318']//span[text()='Apple']")
     WebElement appleManufacturer;
 
-    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
-    WebElement screensSizeCheckboxesBlock;
+//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
+//    WebElement screensSizeCheckboxesBlock;
 
-    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//input[contains(@name,'Размер экрана 16\"-16.9\"')]")
+//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//input[contains(@name,'Размер экрана 16\"-16.9\"')]")
+//    WebElement screen16inchesBool;
+    @FindBy(xpath = "//span[contains(text(),'16\"-16.9\"')]/../../input")
     WebElement screen16inchesBool;
 
     @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//span[text()='16\"-16.9\"']")
     WebElement screen16inchesCheckBox;
+
+    @FindBy(xpath = "//span[contains(text(),'До 5 дней')]/ancestor::label")
+    WebElement radioButton5Days;
 
     YandexMarketGoodsPage searchTextGood(String searchableGood) {
         searchField.sendKeys(searchableGood);
@@ -67,6 +72,13 @@ public class YandexMarketGoodsPage {
                 .until(ExpectedConditions
                         .elementToBeClickable(By.xpath("//div[@id='product-628885067']//div[@class='price']")));
         PageFactory.initElements(driver, this);
+        return this;
+    }
+
+    public YandexMarketGoodsPage chooseDeliveryTerm(){
+        if (!radioButton5Days.isSelected()) {
+            radioButton5Days.click();
+        }
         return this;
     }
 }
