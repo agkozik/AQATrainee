@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @Setter
 public class YandexMarketGoodsPage {
     private String key;
+    private String xPathToRadioButtonDeliveryTerm =
+            "//legend[contains(text(),'Срок доставки курьером')]/..//span[contains(text(),'%s')]/ancestor::label";
     private Double value;
 
     @FindBy(xpath = "//input[@id='header-search']")
@@ -29,11 +31,6 @@ public class YandexMarketGoodsPage {
     @FindBy(xpath = "//fieldset[@data-autotest-id='7893318']//span[text()='Apple']")
     WebElement appleManufacturer;
 
-//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
-//    WebElement screensSizeCheckboxesBlock;
-
-//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//input[contains(@name,'Размер экрана 16\"-16.9\"')]")
-//    WebElement screen16inchesBool;
     @FindBy(xpath = "//span[contains(text(),'16\"-16.9\"')]/../../input")
     WebElement screen16inchesBool;
 
@@ -75,9 +72,16 @@ public class YandexMarketGoodsPage {
         return this;
     }
 
-    public YandexMarketGoodsPage chooseDeliveryTerm(){
+    public YandexMarketGoodsPage chooseDeliveryTerm(String radioButtonName){
         if (!radioButton5Days.isSelected()) {
             radioButton5Days.click();
+        }
+        return this;
+    }
+
+    public YandexMarketGoodsPage chooseDeliveryTermByName(String radioButtonName, WebDriver driver){
+        if (!driver.findElement(By.xpath(String.format(xPathToRadioButtonDeliveryTerm, radioButtonName))).isSelected()) {
+            driver.findElement(By.xpath(String.format(xPathToRadioButtonDeliveryTerm, radioButtonName))).click();
         }
         return this;
     }
