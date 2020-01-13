@@ -31,9 +31,6 @@ public class YandexMarketGoodsPage {
 
     @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
     WebElement screensSizeCheckboxesBlock;
-//
-//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
-//    WebElement screenInches;
 
     @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//input[contains(@name,'Размер экрана 16\"-16.9\"')]")
     WebElement screen16inchesBool;
