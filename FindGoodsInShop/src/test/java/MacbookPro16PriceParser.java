@@ -1,9 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 
 import java.awt.*;
@@ -47,38 +44,38 @@ public class MacbookPro16PriceParser {
     }
 
     @Test(dataProvider = "data-provider", dataProviderClass = DataProviderClass.class)
-    void findTheMostCheapestGoodFromShopByAndAddItToMap(String data){
+    void findTheMostCheapestGoodFromShopByAndAddItToMap(String data) {
         driver.get(URL2);
-        AllSellersForCurrentGood allSellersForCurrentGood=new ShopByPage(driver,WAITSEC)
+        AllSellersForCurrentGood allSellersForCurrentGood = new ShopByPage(driver, WAITSEC)
                 .sendKeyToSearchField(searchableGood)
                 .clickSubmitSearch()
-                .initShopByProductPage(driver,WAITSEC)
+                .initShopByProductPage(driver, WAITSEC)
                 .clickOnSortByButtonAndClickSortListItemByName(data)
-                .detectTheCheapestGoodAndClickOnIt(searchableGood,driver,WAITSEC)
-                .clickAllSellers(driver,WAITSEC)
+                .detectTheCheapestGoodAndClickOnIt(searchableGood, driver, WAITSEC)
+                .clickAllSellers(driver, WAITSEC)
                 .getBestPriceAndURL();
-        dataLinkPrice.put(allSellersForCurrentGood.getKey(),allSellersForCurrentGood.getValue());
+        dataLinkPrice.put(allSellersForCurrentGood.getKey(), allSellersForCurrentGood.getValue());
     }
 
     @AfterClass
-    void printTheCheapestGoodPriceAndLink(){
-        String keyMinValue="";
+    void printTheCheapestGoodPriceAndLink() {
+        String keyMinValue = "";
         System.out.println("Самая низкая цена:");
         //Получение минимального value в Map
-        Double minPrice =Collections
+        Double minPrice = Collections
                 .min(dataLinkPrice.entrySet(), Comparator.comparingDouble(Map.Entry::getValue)).getValue();
         //Поиск ключа по значению в Map
-        for (Map.Entry<String, Double> i:dataLinkPrice.entrySet()) {
+        for (Map.Entry<String, Double> i : dataLinkPrice.entrySet()) {
             if (minPrice.equals(i.getValue())) {
-                keyMinValue= i.getKey();// нашли наше значение и возвращаем  ключ
+                keyMinValue = i.getKey();// нашли наше значение и возвращаем  ключ
                 break;
             }
         }
-        System.out.println("\nЦена: " + minPrice+"\nСсылка на магазин: "+keyMinValue+"\n");
+        System.out.println("\nЦена: " + minPrice + "\nСсылка на магазин: " + keyMinValue + "\n");
         System.out.println("----------------------------Все предложения----------------------------------------------");
 
-        for (Map.Entry<String, Double> i:dataLinkPrice.entrySet()) {
-            System.out.println("\nЦена: " + i.getValue()+"\nСсылка на магазин: "+i.getKey()+"\n");
+        for (Map.Entry<String, Double> i : dataLinkPrice.entrySet()) {
+            System.out.println("\nЦена: " + i.getValue() + "\nСсылка на магазин: " + i.getKey() + "\n");
         }
     }
 

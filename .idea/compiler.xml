@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mailSender" />
-        <module name="HeroesOfSwordAndMagicConsoleEdition" />
         <module name="SeleniumWorkWithTable" />
-        <module name="RF" />
         <module name="CompareStringStringBufferStringBuilder" />
-        <module name="JsonParsersTrainee" />
-        <module name="JDBC" />
-        <module name="FileInputOutputException" />
-        <module name="PhoneValidator" />
-        <module name="CollectionsCompareTo" />
-        <module name="CalculatorInput" />
-        <module name="Hibernate" />
         <module name="StreamAPIExamples" />
+        <module name="FileInputOutputException" />
+        <module name="CollectionsCompareTo" />
+        <module name="RF" />
+        <module name="HeroesOfSwordAndMagicConsoleEdition" />
+        <module name="JsonParsersTrainee" />
+        <module name="CalculatorInput" />
+        <module name="JDBC" />
+        <module name="FindGoodsInShop" />
+        <module name="mailSender" />
+        <module name="PhoneValidator" />
+        <module name="Hibernate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -14,6 +14,7 @@ public class CustomTable {
     public CustomTable(WebElement table, WebDriver driver) {
         this.table = table;
         this.driver = driver;
+
     }
 
     List<WebElement> getRows(){

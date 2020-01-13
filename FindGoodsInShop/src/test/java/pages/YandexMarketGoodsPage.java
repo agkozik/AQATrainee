@@ -31,8 +31,15 @@ public class YandexMarketGoodsPage {
 
     @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
     WebElement screensSizeCheckboxesBlock;
+//
+//    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']")
+//    WebElement screenInches;
+
+    @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//input[contains(@name,'Размер экрана 16\"-16.9\"')]")
+    WebElement screen16inchesBool;
+
     @FindBy(xpath = "//fieldset[@data-autotest-id='15083339']//span[text()='16\"-16.9\"']")
-    WebElement screen16inches;
+    WebElement screen16inchesCheckBox;
 
     YandexMarketGoodsPage searchTextGood(String searchableGood) {
         searchField.sendKeys(searchableGood);
@@ -46,12 +53,14 @@ public class YandexMarketGoodsPage {
     }
 
     public YandexMarketGoodsPage clickOnScreensSizeCheckBox() {
-        screen16inches.click();
+        if (!screen16inchesBool.isSelected()) {
+            screen16inchesCheckBox.click();
+        }
         return this;
     }
 
     public YandexMarketGoodsPage getTheCheapestProduct() {
-        setKey(firstGood.findElement(By.xpath("..")).getAttribute("href")+" ");
+        setKey(firstGood.findElement(By.xpath("..")).getAttribute("href") + " ");
         setValue(Double.valueOf(firstGood.getText().trim().replaceAll("[^0-9]", "")));
         return this;
     }
