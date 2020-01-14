@@ -11,6 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter
@@ -72,16 +74,28 @@ public class YandexMarketGoodsPage {
         return this;
     }
 
-    public YandexMarketGoodsPage chooseDeliveryTerm(String radioButtonName){
+    public YandexMarketGoodsPage chooseDeliveryTerm(String radioButtonName) {
         if (!radioButton5Days.isSelected()) {
             radioButton5Days.click();
         }
         return this;
     }
 
-    public YandexMarketGoodsPage chooseDeliveryTermByName(String radioButtonName, WebDriver driver){
+    public YandexMarketGoodsPage chooseDeliveryTermByName(String radioButtonName, WebDriver driver) {
         if (!driver.findElement(By.xpath(String.format(xPathToRadioButtonDeliveryTerm, radioButtonName))).isSelected()) {
             driver.findElement(By.xpath(String.format(xPathToRadioButtonDeliveryTerm, radioButtonName))).click();
+        }
+        return this;
+    }
+
+    public YandexMarketGoodsPage chooseAllCheckBoxes(String nameOfCheckBoxesBlock, WebDriver driver) {
+        String xPath = "//div[@class='_3_phr-spJh']//legend[text()='%s']//..//input[@type='checkbox']/..";
+        List<WebElement> allCheckBoxes = driver.findElements(By.xpath(String.format(xPath, nameOfCheckBoxesBlock)));
+        for (WebElement i : allCheckBoxes) {
+            if (!i.isSelected()) {
+                System.out.println(i.getText());
+                i.click();
+            }
         }
         return this;
     }

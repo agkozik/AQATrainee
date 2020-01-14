@@ -6,7 +6,7 @@ import pages.*;
 import java.awt.*;
 import java.util.*;
 
-public class MacbookPro16PriceParser {
+public class TestMacbookPro16PriceParser {
 
     private WebDriver driver;
     private final String URL = "https://market.yandex.by/";
@@ -43,6 +43,15 @@ public class MacbookPro16PriceParser {
                 .chooseDeliveryTermByName("Любой",driver)
                 .getTheCheapestProduct();
         dataLinkPrice.put(yandexMarketGoodsPage.getKey(), yandexMarketGoodsPage.getValue());
+    }
+
+    @Test
+    void chooseAllManufactures(){
+        driver.get(URL);
+        new YaMarketPage(driver,WAITSEC)
+                .searchTextGood(searchableGood)
+                .initPage(driver,WAITSEC)
+                .chooseAllCheckBoxes("Производитель", driver);
     }
 
     @Test(dataProvider = "data-provider", dataProviderClass = DataProviderClass.class)

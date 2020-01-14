@@ -25,6 +25,7 @@
         <module>SeleniumWorkWithTable</module>
         <module>FindGoodsInShop</module>
         <module>SeleniumWorkWithCombobox</module>
+        <module>SeleniumWorkWithWindow</module>
     </modules>
 
 </project>
