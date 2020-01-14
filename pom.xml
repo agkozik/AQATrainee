@@ -24,6 +24,7 @@
         <module>Hibernate</module>
         <module>SeleniumWorkWithTable</module>
         <module>FindGoodsInShop</module>
+        <module>SeleniumWorkWithCombobox</module>
     </modules>
 
 </project>

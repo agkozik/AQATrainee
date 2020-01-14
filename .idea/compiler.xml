@@ -17,6 +17,7 @@
         <module name="CalculatorInput" />
         <module name="JDBC" />
         <module name="FindGoodsInShop" />
+        <module name="SeleniumWorkWithCombobox" />
         <module name="mailSender" />
         <module name="PhoneValidator" />
         <module name="Hibernate" />
