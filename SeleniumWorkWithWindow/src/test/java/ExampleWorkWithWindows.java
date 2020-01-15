@@ -1,19 +1,23 @@
-import com.sun.deploy.cache.Cache;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.reporters.Files;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ExampleWorkWithWindows {
     static WebDriver driver;
     private static Files FileUtils;
 
     public static void main(String[] args) throws IOException {
+        /* запуск браузера в режиме без UI
+        ChromeOptions options = new ChromeOptions();
+        options.setHeadless(true);
+        driver = new ChromeDriver(options);
+        */
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com/sql/");
@@ -30,8 +34,7 @@ public class ExampleWorkWithWindows {
             String selectAll = Keys.chord(Keys.CONTROL, "a");
             searchField.sendKeys(selectAll);
 
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(screenshot, new File("c:\\English\\screenshot.png"));
+            takeScreenshot();
         }
         button1.click();
 
@@ -53,5 +56,15 @@ public class ExampleWorkWithWindows {
             button1.click();
         }
         driver.quit();
+    }
+
+    public static void takeScreenshot() throws IOException {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        Date dataNow = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss");
+        String methodName = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        String dynamicNameForScreenshot = simpleDateFormat.format(dataNow) + methodName + ".png";
+        FileHandler.copy(screenshot, new File("c:\\tmp\\" + dynamicNameForScreenshot));
     }
 }
