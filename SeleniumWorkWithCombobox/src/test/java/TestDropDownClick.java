@@ -1,48 +1,97 @@
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class TestDropDownClick {
-    private static volatile WebDriver driver;
-    private final String URL="https://www.facebook.com/";
-    private final int WAIT_TIME=20;
+    private final String URL = "https://www.facebook.com/";
+    private final int WAIT_TIME = 20;
+
+    //ThreadLocal will keep local copy of driver
+    public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<>();
 
     @BeforeMethod
-    public static WebDriver getInstance() {
-        WebDriver localDriver = driver;
-        if (localDriver == null) {
-            synchronized (TestDropDownClick.class) {
-                localDriver = driver;
-                if (localDriver == null) {
-                    driver = localDriver = new ChromeDriver() {
-                    };
-                }   }  }
-        driver.manage().window().maximize();
-        return driver;
+    //Parameter will get browser from testng.xml on which browser test to run
+    @Parameters("myBrowser")
+    public void beforeClass(String myBrowser) throws MalformedURLException {
+        RemoteWebDriver driver = null;
+        if (myBrowser.equals("chrome")) {
+            DesiredCapabilities capability = DesiredCapabilities.chrome();
+            capability.setBrowserName("chrome");
+            capability.setPlatform(Platform.WINDOWS);
+            driver = new RemoteWebDriver(new URL("http://localhost:8090/wd/hub"), capability);
+        } else if (myBrowser.equals("firefox")) {
+            DesiredCapabilities capability = DesiredCapabilities.chrome();
+            capability.setBrowserName("firefox");
+            capability.setPlatform(Platform.WINDOWS);
+            driver = new RemoteWebDriver(new URL("http://localhost:8090/wd/hub"), capability);
+        }
+        //setting webdriver
+        setWebDriver(driver);
+        getDriver().manage().window().maximize();
     }
 
-    @BeforeMethod
-    void hideMousePointer() throws AWTException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
+    public WebDriver getDriver() {
+        return dr.get();
     }
 
-    @Test(dataProvider = "data-provider", dataProviderClass = DataProviderClass.class)
-    void chooseDayOfBirthdayDropDown(String field, String value){
-        driver.get(URL);
-        new MainPage(driver,WAIT_TIME).clickByFieldDay().chooseDayOfBirth(field, value);
-        //Assert.assertEquals(value.getText(),day);
+    public void setWebDriver(RemoteWebDriver driver) {
+        dr.set(driver);
+    }
+
+    @Test(dataProvider = "days", dataProviderClass = DataProviderClass.class)
+    public void chooseDayOfBirthdayDropDown(String field, String value) {
+        getDriver().get(URL);
+        String actualValueOfField = new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldDay().chooseValueFromDropdown(field, value);
+        Assert.assertEquals(actualValueOfField, value);
+    }
+
+    @Test(dataProvider = "month", dataProviderClass = DataProviderClass.class)
+    public void chooseMonthOfBirthdayDropDown(String field, String value) {
+        getDriver().get(URL);
+        String actualValueOfField = new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldMonth().chooseValueFromDropdown(field, value);
+        Assert.assertEquals(actualValueOfField, value);
+    }
+
+    @Test(dataProvider = "years", dataProviderClass = DataProviderClass.class)
+    public void chooseYearOfBirthdayDropDown(String field, String value) {
+        getDriver().get(URL);
+        String actualValueOfField = new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldYear().chooseValueFromDropdown(field, value);
+        Assert.assertEquals(actualValueOfField, value);
+    }
+
+    @Test()
+    public void clickByDate() {
+        getDriver().get(URL);
+        new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldDay();
+    }
+
+    @Test()
+    public void clickByMonth() {
+        getDriver().get(URL);
+        new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldMonth();
+    }
+
+    @Test()
+    void clickByYear() {
+        getDriver().get(URL);
+        new MainPage(dr.get(), WAIT_TIME)
+                .clickByFieldYear();
     }
 
     @AfterMethod
-    void closeBrowser() {
-        driver.quit();
-        driver = null;
+    public void afterClass() {
+        getDriver().quit();
+        dr.set(null);
     }
 }

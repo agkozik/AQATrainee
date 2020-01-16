@@ -1,22 +1,31 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
-import pages.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.AllSellersForCurrentGood;
+import pages.ShopByPage;
+import pages.YaMarketPage;
+import pages.YandexMarketGoodsPage;
 
 import java.awt.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class TestMacbookPro16PriceParser {
 
     private WebDriver driver;
-    private final String URL = "https://market.yandex.by/";
+    private final String URL1 = "https://market.yandex.by/";
     private final String URL2 = "https://shop.by/";
     private final int WAITSEC = 10;
     private String searchableGood = "MacBook Pro 16";
     private String listItem = "С дешевых";
     Map<String, Double> dataLinkPrice = new TreeMap<>();
 
-    @BeforeMethod
+        @BeforeMethod
     void getBrowserInstance() {
         if (driver == null) {
             //System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
@@ -32,25 +41,37 @@ public class TestMacbookPro16PriceParser {
     }
 
     @Test
-    void findTheMostCheapestGoodFromYandexAndAddItToMap() {
-        driver.get(URL);
+    void findTheMostCheapestGoodFromYandexAndAddItToMapWithRadiobuttonClick() {
+        driver.get(URL1);
         YandexMarketGoodsPage yandexMarketGoodsPage = new YaMarketPage(driver, WAITSEC)
                 .searchTextGood(searchableGood)
                 .initPage(driver, WAITSEC)
                 .clickOnManufacturerCheckBox()
                 .clickOnScreensSizeCheckBox()
-                .chooseDeliveryTermByName("До 5 дней",driver)
-                .chooseDeliveryTermByName("Любой",driver)
+                .chooseDeliveryTermByName("До 5 дней", driver)
+                .chooseDeliveryTermByName("Любой", driver)
                 .getTheCheapestProduct();
         dataLinkPrice.put(yandexMarketGoodsPage.getKey(), yandexMarketGoodsPage.getValue());
     }
 
     @Test
-    void chooseAllManufactures(){
-        driver.get(URL);
-        new YaMarketPage(driver,WAITSEC)
+    void findTheMostCheapestGoodFromYandexAndAddItToMap() {
+        driver.get(URL1);
+        YandexMarketGoodsPage yandexMarketGoodsPage = new YaMarketPage(driver, WAITSEC)
                 .searchTextGood(searchableGood)
-                .initPage(driver,WAITSEC)
+                .initPage(driver, WAITSEC)
+                .clickOnManufacturerCheckBox()
+                .clickOnScreensSizeCheckBox()
+                .getTheCheapestProduct();
+        dataLinkPrice.put(yandexMarketGoodsPage.getKey(), yandexMarketGoodsPage.getValue());
+    }
+
+    @Test
+    void chooseAllManufactures() {
+        driver.get(URL1);
+        new YaMarketPage(driver, WAITSEC)
+                .searchTextGood(searchableGood)
+                .initPage(driver, WAITSEC)
                 .chooseAllCheckBoxes("Производитель", driver);
     }
 

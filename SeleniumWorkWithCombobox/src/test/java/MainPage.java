@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.json.JsonOutput;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,11 +31,22 @@ public class MainPage {
         return this;
     }
 
-    public MainPage chooseDayOfBirth(String field, String value){
+    public MainPage clickByFieldMonth(){
+        dateOfBirthMonth.click();
+        return this;
+    }
+
+    public MainPage clickByFieldYear(){
+        dateOfBirthYear.click();
+        return this;
+    }
+
+    public String chooseValueFromDropdown(String field, String value){
        String xPathToElementInDropDown="//select[@id='%s']//option[contains(text(),'%s')]";
-       System.out.println(dateOfBirthBlock
-               .findElement(By.xpath(String.format(xPathToElementInDropDown, field, value))).getText());
+       String choosenField = dateOfBirthBlock
+               .findElement(By.xpath(String.format(xPathToElementInDropDown, field, value))).getText();
+        System.out.println(choosenField);
        dateOfBirthBlock.findElement(By.xpath(String.format(xPathToElementInDropDown, field, value))).click();
-       return this;
+       return choosenField;
    }
 }

@@ -1,9 +1,0 @@
-TestsWithJUnit5.class
-pages\CreateMailPage.class
-pages\AccountMailPage.class
-TestWithTestNG.class
-pages\MailPage.class
-pages\PasswordPage.class
-pages\LoginPage.class
-pages\ViewOutgoingMailPage.class
-pages\OutgoingMailsPage.class
