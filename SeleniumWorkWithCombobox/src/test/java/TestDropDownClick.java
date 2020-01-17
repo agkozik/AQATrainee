@@ -24,14 +24,13 @@ public class TestDropDownClick {
             DesiredCapabilities capability = DesiredCapabilities.chrome();
             capability.setBrowserName("chrome");
             capability.setPlatform(Platform.WINDOWS);
-            driver = new RemoteWebDriver(new URL("http://localhost:8090/wd/hub"), capability);
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         } else if (myBrowser.equals("firefox")) {
             DesiredCapabilities capability = DesiredCapabilities.chrome();
             capability.setBrowserName("firefox");
             capability.setPlatform(Platform.WINDOWS);
-            driver = new RemoteWebDriver(new URL("http://localhost:8090/wd/hub"), capability);
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         }
-        //setting webdriver
         setWebDriver(driver);
         getDriver().manage().window().maximize();
     }
