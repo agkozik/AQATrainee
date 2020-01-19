@@ -26,6 +26,7 @@
         <module>FindGoodsInShop</module>
         <module>SeleniumWorkWithCombobox</module>
         <module>SeleniumWorkWithWindow</module>
+        <module>FrameworkTut</module>
     </modules>
 
 </project>
