@@ -13,6 +13,8 @@ public class WelcomePage extends BasePage {
 
     private By authLink =By.linkText("Form Authentication");
     private By checkboxesLink =By.linkText("Checkboxes");
+    private By dropDownLink =By.linkText("Dropdown");
+    private By JavaScriptAlertsLink =By.linkText("JavaScript Alerts");
 
     public WelcomePage(WebDriver driver, Logger log) {
         super(driver, log);
@@ -46,4 +48,23 @@ public class WelcomePage extends BasePage {
         return new CheckboxesPage(driver,log);
     }
 
+    /**
+     * Open Dropdown page by clicking on Dropdown link in Welcome page
+     */
+    public DropdownPage clickDropdownLink(){
+        log.info("Clicking Dropdown link");
+        click(dropDownLink);
+        log.info("Page "+driver.getCurrentUrl()+" has been opened");
+        return  new DropdownPage(driver,log);
+    }
+
+    /**
+     * Open Dropdown page by clicking on JavaScriptAlert link in Welcome page
+     */
+    public JavaScriptAlertsPage clickJavaScriptAlertLink(){
+        log.info("Clicking JavaScriptAlert link");
+        click(JavaScriptAlertsLink);
+        log.info("Page "+driver.getCurrentUrl()+" has been opened");
+        return new JavaScriptAlertsPage(driver,log);
+    }
 }

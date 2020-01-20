@@ -12,7 +12,7 @@
         <module name="StreamAPIExamples" />
         <module name="CollectionsCompareTo" />
         <module name="FrameworkTut" />
-        <module name="mailSender" />
+        <module name="SeleniumWorkWithTable" />
         <module name="RF" />
         <module name="HeroesOfSwordAndMagicConsoleEdition" />
         <module name="JsonParsersTrainee" />
@@ -20,7 +20,7 @@
         <module name="JDBC" />
         <module name="FindGoodsInShop" />
         <module name="SeleniumWorkWithCombobox" />
-        <module name="SeleniumWorkWithTable" />
+        <module name="mailSender" />
         <module name="PhoneValidator" />
         <module name="Hibernate" />
       </profile>

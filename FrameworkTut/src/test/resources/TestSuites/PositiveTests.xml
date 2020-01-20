@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="PositiveLoginTestSuite" verbose="1" parallel="tests" thread-count="2">
-    <test name="PositiveLoginTest">
+<suite name="PositiveLoginTestSuite" verbose="1" parallel="methods" thread-count="4">
+    <test name="PositiveLoginTest-chrome">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name = "com.herokuapp.theinternet.loginPageTests.PositiveLogInTests"/>
+            <class name = "com.herokuapp.theinternet.checkboxesTests.CheckBoxesTests"/>
+            <class name = "com.herokuapp.theinternet.dropDownTests.DropDowntests"/>
+            <class name = "com.herokuapp.theinternet.javaScriptAlert.JavaScriptAlertsTests"/>
 
+        </classes>
+    </test>
+
+    <test name="PositiveLoginTest-firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name = "com.herokuapp.theinternet.loginPageTests.PositiveLogInTests"/>
+            <class name = "com.herokuapp.theinternet.checkboxesTests.CheckBoxesTests"/>
+            <class name = "com.herokuapp.theinternet.dropDownTests.DropDowntests"/>
+            <class name = "com.herokuapp.theinternet.javaScriptAlert.JavaScriptAlertsTests"/>
         </classes>
     </test>
 </suite>

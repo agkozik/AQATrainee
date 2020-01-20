@@ -5,29 +5,30 @@ import com.herokuapp.theinternet.pages.WelcomePage;
 import engine.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import turboEngine.TestEngine;
 
 import static org.testng.Assert.*;
 
-public class NegativeLogInTests extends BaseTest {
+public class NegativeLogInTests extends TestEngine {
 
     @Test
     public void openWelcomePage() {
-        WelcomePage welcomePage=new WelcomePage(driver, log)
+        WelcomePage welcomePage=new WelcomePage(getDriver(), log)
                 .openPage();
-        assertEquals(driver.getCurrentUrl(),welcomePage.getPageUrl());
+        assertEquals(dr.get().getCurrentUrl(),welcomePage.getPageUrl());
     }
 
     @Test
     public void openAuthPage() {
-        LoginPage loginPage=new WelcomePage(driver, log)
+        LoginPage loginPage=new WelcomePage(getDriver(), log)
                 .openPage()
                 .clickFormAuthenticationLink();
-        assertTrue(driver.findElement(By.xpath("//button[@class='radius']")).isDisplayed());
+        assertTrue(dr.get().findElement(By.xpath("//button[@class='radius']")).isDisplayed());
     }
 
     @Test
     void logInOnLoginPageWithWrongData() {
-        LoginPage loginPage= new WelcomePage(driver, log)
+        LoginPage loginPage= new WelcomePage(getDriver(), log)
                 .openPage()
                 .clickFormAuthenticationLink();
         loginPage

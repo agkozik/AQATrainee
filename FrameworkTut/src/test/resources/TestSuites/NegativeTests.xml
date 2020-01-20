@@ -15,7 +15,6 @@
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.herokuapp.theinternet.loginPageTests.NegativeLogInTests"/>
-
         </classes>
     </test>
 </suite>
