@@ -9,9 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePage {
     protected WebDriver driver;
     protected Logger log;
+    protected int WAIT_IN_SEC = 5;
 
     public BasePage(WebDriver driver, Logger log) {
         this.driver = driver;
@@ -26,17 +29,28 @@ public class BasePage {
     }
 
     /**
-     * Find element by given locator
+     * Find element by given locator find=driver.findElement(locator)
      */
     protected WebElement find(By locator) {
-        return driver.findElement(locator);
+        log.info("Find element by locator "+locator);
+        return new WebDriverWait(driver,WAIT_IN_SEC)
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    /**
+     * Find all  elements (List<WebElement>) by given locator findAll=driver.findElementS(locator)
+     */
+    protected List<WebElement> findAll(By locator){
+        log.info("Find element by locator "+locator);
+        new WebDriverWait(driver,WAIT_IN_SEC)
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return driver.findElements(locator);
     }
 
     /**
      * Click on Element with given locator when its visible
      */
     protected void click(By locator) {
-        int WAIT_IN_SEC = 5;
         waitForVisibilityOf(locator, WAIT_IN_SEC);
         find(locator).click();
     }
