@@ -2,10 +2,11 @@ package com.herokuapp.theinternet.checkboxesTests;
 
 import com.herokuapp.theinternet.pages.CheckboxesPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
-import engine.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import turboEngine.TestEngine;
+
+import java.io.IOException;
 
 public class CheckBoxesTests extends TestEngine {
 
@@ -19,7 +20,7 @@ public class CheckBoxesTests extends TestEngine {
 
     @Test
     public void chooseAllCheckBoxes() {
-        Boolean checkboxesSelected = new WelcomePage(getDriver(), log)
+        boolean checkboxesSelected = new WelcomePage(getDriver(), log)
                 .openPage()
                 .clickCheckboxesLink()
                 .chooseAllCheckboxes()
@@ -29,7 +30,7 @@ public class CheckBoxesTests extends TestEngine {
 
     @Test
     public void unchooseAllCheckBoxes() {
-        Boolean checkboxesSelected = new WelcomePage(getDriver(), log)
+        boolean checkboxesSelected = new WelcomePage(getDriver(), log)
                 .openPage()
                 .clickCheckboxesLink()
                 .unselectAllCheckboxes()
@@ -38,11 +39,13 @@ public class CheckBoxesTests extends TestEngine {
     }
 
     @Test
-    public void chooseFirstCheckboxOnPage() {
+    public void chooseFirstCheckboxOnPage() throws IOException {
+        int index=1;
         CheckboxesPage checkboxesPage = new WelcomePage(getDriver(), log)
                 .openPage()
                 .clickCheckboxesLink()
-                .chooseCheckboxByIndex(1);
-        Assert.assertTrue(checkboxesPage.returnSelectedCheckboxes().get(1 - 1));
+                .chooseCheckboxByIndex(index);
+        takeScreenshot();
+        Assert.assertTrue(checkboxesPage.returnSelectedCheckboxes().get(index - 1));
     }
 }

@@ -6,7 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class BasePage {
     protected WebDriver driver;
@@ -21,14 +23,14 @@ public class BasePage {
     /**
      * Open page by URL
      */
-    protected void openUrl(String url) {
+    public void openUrl(String url) {
         driver.get(url);
     }
 
     /**
      * Find element by given locator find=driver.findElement(locator)
      */
-    protected WebElement find(By locator) {
+    public WebElement find(By locator) {
         log.info("Find element by locator "+locator);
         return new WebDriverWait(driver,WAIT_IN_SEC)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -37,7 +39,7 @@ public class BasePage {
     /**
      * Find all  elements (List<WebElement>) by given locator findAll=driver.findElementS(locator)
      */
-    protected List<WebElement> findAll(By locator){
+    public List<WebElement> findAll(By locator){
         log.info("Find element by locator "+locator);
         new WebDriverWait(driver,WAIT_IN_SEC)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -47,7 +49,7 @@ public class BasePage {
     /**
      * Click on Element with given locator when its visible
      */
-    protected void click(By locator) {
+    public void click(By locator) {
         waitForVisibilityOf(locator, WAIT_IN_SEC);
         find(locator).click();
     }
@@ -55,7 +57,7 @@ public class BasePage {
     /**
      * Type given text into element with given locator (analog sendKeys)
      */
-    protected void type(String text, By locator) {
+    public void type(String text, By locator) {
         waitForVisibilityOf(locator);
         find(locator).sendKeys(text);
     }
@@ -68,9 +70,23 @@ public class BasePage {
     }
 
     /**
+     * Get current Page Title, from current page
+     */
+    public String getCurrentPageTitle(){
+        return driver.getTitle();
+    }
+
+    /**
+     * Get current PageSource, from current page
+     */
+    public String getCurrentPageSource(){
+        return driver.getPageSource();
+    }
+
+    /**
      * Wait for custom ExpectedCondition with ExplicitWait in seconds
      */
-    protected void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
+    public void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
         timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
         new WebDriverWait(driver, timeOutInSeconds).until(condition);
     }
@@ -78,7 +94,7 @@ public class BasePage {
     /**
      * Wait for given number of seconds (ExplicitWait visibilityOfElementLocated(locator))
      */
-    protected void waitForVisibilityOf(By locator, Integer... timeOutInSeconds) {
+    public void waitForVisibilityOf(By locator, Integer... timeOutInSeconds) {
         int attempts = 0;
         while (attempts < 2) {
             try {
@@ -94,11 +110,35 @@ public class BasePage {
 
     /**
      * Wait for Alert and swith to it
-     * @return
      */
     public Alert switchToAlert(){
         WebDriverWait wait = new WebDriverWait(driver,WAIT_IN_SEC);
                 wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert();
     }
+
+    /**
+     * Switch to new window in browser by title
+     */
+    public void switchToNewWindowByTitle(String expectedTitle){
+        String firstWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+
+        for (String iWindow : allWindows) {
+            if (!(iWindow.equals(firstWindow))) {
+                driver.switchTo().window(iWindow);
+                if (driver.getTitle().equals(expectedTitle)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Switch To Frame by locator
+     */
+    public void switchToFrameByLocator(By locator){
+        driver.switchTo().frame(find(locator));
+    }
+
 }

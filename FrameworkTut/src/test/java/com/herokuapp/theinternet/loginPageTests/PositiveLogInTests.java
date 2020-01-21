@@ -2,7 +2,6 @@ package com.herokuapp.theinternet.loginPageTests;
 
 import com.herokuapp.theinternet.pages.SecureAreaPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
-import engine.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import turboEngine.TestEngine;

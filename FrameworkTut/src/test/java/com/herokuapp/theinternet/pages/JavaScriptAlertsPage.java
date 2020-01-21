@@ -33,7 +33,6 @@ public class JavaScriptAlertsPage extends BasePage {
 
     /**
      * switch to Alert and get AlertMessage
-     * @return
      */
     public String getAlertText(){
         Alert alert = switchToAlert();
@@ -44,7 +43,6 @@ public class JavaScriptAlertsPage extends BasePage {
 
     /**
      * switch to Alert and get accept it
-     * @return
      */
     public JavaScriptAlertsPage acceptAlert(){
         Alert alert = switchToAlert();
@@ -54,7 +52,6 @@ public class JavaScriptAlertsPage extends BasePage {
 
     /**
      * switch to Alert and get dismiss it
-     * @return
      */
     public JavaScriptAlertsPage dismissAlert(){
         Alert alert = switchToAlert();
@@ -64,7 +61,6 @@ public class JavaScriptAlertsPage extends BasePage {
 
     /**
      * switch to Alert, send keys and accept it
-     * @return
      */
     public JavaScriptAlertsPage sendKeysToAlert (String keys){
         Alert alert = switchToAlert();
@@ -77,5 +73,4 @@ public class JavaScriptAlertsPage extends BasePage {
        log.info(text);
        return text;
     }
-
 }

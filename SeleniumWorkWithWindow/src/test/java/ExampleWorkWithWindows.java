@@ -21,7 +21,6 @@ public class ExampleWorkWithWindows {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com/sql/");
-
         //запомнить имя первого окна
         String firstWindow = driver.getWindowHandle();
         WebElement button1 = driver.findElement(By.xpath("//a[contains(text(),'Try it Yourself »')]"));
@@ -37,7 +36,6 @@ public class ExampleWorkWithWindows {
             takeScreenshot();
         }
         button1.click();
-
         //переключение на открывшееся окно
         for (String i : driver.getWindowHandles()) {
             driver.switchTo().window(i);
@@ -47,10 +45,8 @@ public class ExampleWorkWithWindows {
         if (button2.isEnabled()) {
             button2.click();
         }
-
         //возврат на первое окно
         driver.switchTo().window(firstWindow);
-
         //проверка наличия элемента
         if (driver.findElements(By.xpath("//a[contains(text(),'Try it Yourself »')]")).size() > 0) {
             button1.click();

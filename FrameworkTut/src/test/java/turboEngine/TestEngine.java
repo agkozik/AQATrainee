@@ -2,17 +2,25 @@ package turboEngine;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.apache.logging.log4j.Logger;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TestEngine {
 
@@ -23,9 +31,9 @@ public class TestEngine {
     @BeforeMethod
     //Parameter will get browser from testng.xml on which browser test to run
     @Parameters("browser")
-    public void beforeClass(String browser, ITestContext ctx) throws MalformedURLException {
-        String testName=ctx.getCurrentXmlTest().getName();
-        log= LogManager.getLogger(testName);
+    public void beforeClass(@Optional("chrome")String browser, ITestContext ctx) throws MalformedURLException {
+        String testName = ctx.getCurrentXmlTest().getName();
+        log = LogManager.getLogger(testName);
         RemoteWebDriver driver = null;
         if (browser.equals("chrome")) {
             DesiredCapabilities capability = DesiredCapabilities.chrome();
@@ -54,5 +62,16 @@ public class TestEngine {
     public void afterClass() {
         getDriver().quit();
         dr.set(null);
+    }
+
+    /**
+     * Take screenshot with time and
+     */
+    public void takeScreenshot() throws IOException {
+        File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        Date dataNow = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss");
+        String dynamicNameForScreenshot = simpleDateFormat.format(dataNow) + ".png";
+        FileHandler.copy(screenshot, new File("c:\\tmp\\" + dynamicNameForScreenshot));
     }
 }
