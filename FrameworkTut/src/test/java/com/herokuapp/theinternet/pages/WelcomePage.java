@@ -80,8 +80,8 @@ public class WelcomePage extends BasePage {
     /**
      * Open wysiwyg Editor (work with iFrame)
      */
-    public WysiwygEditorPage openWysiwygEditorPage(){
+    public WysiwygEditorPage clickOnWysiwygEditorLink() {
         click(wysiwygEditorLink);
-        return new WysiwygEditorPage(driver,log);
+        return new WysiwygEditorPage(driver, log);
     }
 }

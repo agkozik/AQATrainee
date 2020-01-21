@@ -10,7 +10,7 @@
             <class name = "com.herokuapp.theinternet.dropDownTests.DropDowntests"/>
             <class name = "com.herokuapp.theinternet.javaScriptAlert.JavaScriptAlertsTests"/>
             <class name = "com.herokuapp.theinternet.windowsTests.NewWindowPageTests"/>
-
+            <class name = "com.herokuapp.theinternet.wysiwygEditorTests.EditorTests"/>
         </classes>
     </test>
 
@@ -22,7 +22,8 @@
             <class name = "com.herokuapp.theinternet.dropDownTests.DropDowntests"/>
             <class name = "com.herokuapp.theinternet.javaScriptAlert.JavaScriptAlertsTests"/>
             <class name = "com.herokuapp.theinternet.windowsTests.NewWindowPageTests"/>
-
+            <class name = "com.herokuapp.theinternet.wysiwygEditorTests.EditorTests"/>
         </classes>
     </test>
+
 </suite>

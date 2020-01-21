@@ -2,11 +2,11 @@ package com.herokuapp.theinternet.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -63,6 +63,51 @@ public class BasePage {
     }
 
     /**
+     * Type text using actions
+     */
+    public void pressKeysWithActions(Keys key){
+        log.info("Press keys " + key+" using Actions");
+        Actions actions = new Actions(driver);
+        actions.sendKeys(key).build().perform();
+    }
+
+    /**
+     * Select all Ctrl+a
+     */
+    public BasePage pressCtrlA(WebElement webElement){
+        String action =Keys.chord(Keys.CONTROL,"a");
+        webElement.sendKeys(action);
+        return this;
+    }
+
+    /**
+     * Select all Ctrl+x
+     */
+    public BasePage pressCtrlX(WebElement webElement){
+        String action =Keys.chord(Keys.CONTROL,"x");
+        webElement.sendKeys(action);
+        return this;
+    }
+
+    /**
+     * Paste Ctrl+v
+     */
+    public BasePage pressCtrlV(WebElement webElement){
+        String action =Keys.chord(Keys.CONTROL,"v");
+        webElement.sendKeys(action);
+        return this;
+    }
+
+    /**
+     * Copy Ctrl+c
+     */
+    public BasePage pressCtrlC(WebElement webElement){
+        String action =Keys.chord(Keys.CONTROL,"c");
+        webElement.sendKeys(action);
+        return this;
+    }
+
+    /**
      * Get Current URL from browser
      */
     public String getCurrentUrlFromBrowser() {
@@ -73,6 +118,8 @@ public class BasePage {
      * Get current Page Title, from current page
      */
     public String getCurrentPageTitle(){
+        new WebDriverWait(driver,WAIT_IN_SEC)
+                .until(ExpectedConditions.titleContains(""));
         return driver.getTitle();
     }
 

@@ -10,7 +10,7 @@ import turboEngine.TestEngine;
 
 public class NewWindowPageTests extends TestEngine {
 
-    @Test
+    @Test (retryAnalyzer = RunTestAgain.class)
     void openNewWindowAndCheckTitle(){
         NewWindowPage newWindowPage = new WelcomePage(getDriver(),log)
                 .openPage()
