@@ -4,7 +4,7 @@ import com.herokuapp.theinternet.pages.CheckboxesPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import turboEngine.TestEngine;
+import testEngine.TestEngine;
 
 import java.io.IOException;
 

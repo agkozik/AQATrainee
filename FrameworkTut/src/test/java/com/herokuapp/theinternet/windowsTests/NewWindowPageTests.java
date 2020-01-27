@@ -5,8 +5,8 @@ import com.herokuapp.theinternet.pages.WelcomePage;
 import com.herokuapp.theinternet.pages.WindowPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import turboEngine.RunTestAgain;
-import turboEngine.TestEngine;
+import testEngine.RunTestAgain;
+import testEngine.TestEngine;
 
 public class NewWindowPageTests extends TestEngine {
 

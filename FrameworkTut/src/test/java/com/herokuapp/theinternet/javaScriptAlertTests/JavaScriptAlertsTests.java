@@ -1,4 +1,4 @@
-package com.herokuapp.theinternet.javaScriptAlert;
+package com.herokuapp.theinternet.javaScriptAlertTests;
 
 import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import turboEngine.TestEngine;
+import testEngine.TestEngine;
 
 public class JavaScriptAlertsTests extends TestEngine {
 

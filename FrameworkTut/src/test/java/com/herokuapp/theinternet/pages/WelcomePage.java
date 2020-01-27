@@ -81,6 +81,7 @@ public class WelcomePage extends BasePage {
      * Open wysiwyg Editor (work with iFrame)
      */
     public WysiwygEditorPage clickOnWysiwygEditorLink() {
+        scrollToBottom();
         click(wysiwygEditorLink);
         return new WysiwygEditorPage(driver, log);
     }

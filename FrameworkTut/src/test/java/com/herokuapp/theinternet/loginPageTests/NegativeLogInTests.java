@@ -4,7 +4,7 @@ import com.herokuapp.theinternet.pages.LoginPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import turboEngine.TestEngine;
+import testEngine.TestEngine;
 
 import static org.testng.Assert.*;
 

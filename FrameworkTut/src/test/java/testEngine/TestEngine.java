@@ -1,4 +1,4 @@
-package turboEngine;
+package testEngine;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -23,7 +24,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TestEngine {
-
     //ThreadLocal will keep local copy of driver
     public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<>();
     protected Logger log;
@@ -31,7 +31,7 @@ public class TestEngine {
     @BeforeMethod
     //Parameter will get browser from testng.xml on which browser test to run
     @Parameters("browser")
-    public void beforeClass(@Optional("chrome")String browser, ITestContext ctx) throws MalformedURLException {
+    public void initDriver(@Optional("chrome")String browser, ITestContext ctx) throws MalformedURLException {
         String testName = ctx.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
         RemoteWebDriver driver = null;
@@ -46,6 +46,7 @@ public class TestEngine {
             capability.setPlatform(Platform.WINDOWS);
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         }
+
         setWebDriver(driver);
         getDriver().manage().window().maximize();
     }
@@ -59,7 +60,8 @@ public class TestEngine {
     }
 
     @AfterMethod
-    public void afterClass() {
+    public void closeDriver() {
+        log.info("Driver has been closed");
         getDriver().quit();
         dr.set(null);
     }

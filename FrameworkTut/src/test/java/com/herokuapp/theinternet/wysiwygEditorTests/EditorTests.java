@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import turboEngine.TestEngine;
+import testEngine.TestEngine;
 
 public class EditorTests extends TestEngine {
 
@@ -26,10 +26,5 @@ public class EditorTests extends TestEngine {
                 .openPage()
                 .clickOnWysiwygEditorLink()
                 .pressKeysWithActions(Keys.SPACE);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

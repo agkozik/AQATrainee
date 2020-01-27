@@ -188,4 +188,13 @@ public class BasePage {
         driver.switchTo().frame(find(locator));
     }
 
+    /**
+     * Scroll page to the bottom using JavaScript Executor
+     */
+    public void scrollToBottom(){
+        log.info("Scrolling to the bottom...");
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+        javascriptExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
 }
