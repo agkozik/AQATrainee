@@ -23,4 +23,13 @@ public class DragAndDrop extends TestEngine {
         Assert.assertEquals(dragAndDropPage.getTextFromLeftElement(),"B");
         Assert.assertEquals(dragAndDropPage.getTextFromRightElement(),"A");
     }
+
+    @Test
+    void dragBtoAUsingExecutor(){
+        DragAndDropPage dragAndDropPage = new DragAndDropPage(getDriver(),log)
+                .openPage();
+        dragAndDropPage.dragAndDropUsingJavascript(dragAndDropPage.getElementB(),dragAndDropPage.getElementA());
+        Assert.assertEquals(dragAndDropPage.getTextFromLeftElement(),"B");
+        Assert.assertEquals(dragAndDropPage.getTextFromRightElement(),"A");
+    }
 }
