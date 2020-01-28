@@ -11,7 +11,7 @@ public class LoginPage extends BasePage {
     private By fieldUserName = By.xpath("//input[@id='username']");
     private By fieldUserPassword = By.xpath("//input[@id='password']");
     private By loginButton = By.xpath("//button[@class='radius']");
-    private By divMessage = By.xpath("//div[@id='flash']");
+    private By errorMessageLocator = By.xpath("//div[@id='flash']");
 
     private String errorMessage = "Your username is invalid!";
 
@@ -33,7 +33,12 @@ public class LoginPage extends BasePage {
         return new SecureAreaPage(driver, log);
     }
 
+    /** Wait for error message to be visible on the page */
+    public void waitForErrorMessage() {
+        waitForVisibilityOf(errorMessageLocator, 5);
+    }
+
     public String getTextErrorMessageFromPage(){
-        return find(divMessage).getText();
+        return find(errorMessageLocator).getText();
     }
 }

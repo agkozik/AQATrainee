@@ -71,6 +71,11 @@ public class BasePage {
         actions.sendKeys(key).build().perform();
     }
 
+
+    public void pressKey(By locator,Keys key){
+        find(locator).sendKeys(key);
+    }
+
     /**
      * Select all Ctrl+a
      */

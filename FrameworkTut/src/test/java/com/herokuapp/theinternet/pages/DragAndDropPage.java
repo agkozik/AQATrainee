@@ -38,7 +38,14 @@ public class DragAndDropPage extends BasePage {
     public DragAndDropPage dragAndDropUsingActions() {
         log.info("drag And Drop Using actions.dragAndDrop(find(elementA), find(elementB))");
         Actions actions = new Actions(driver);
-        actions.dragAndDrop(find(elementA), find(elementB));
+        actions.dragAndDrop(find(elementA), find(elementB)).build().perform();
+        return this;
+    }
+
+    public DragAndDropPage clickAndHoldAAndMoveToB(){
+        log.info("drag And Drop Using actions.");
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(find(elementA)).moveToElement(find(elementB)).release().build().perform();
         return this;
     }
 

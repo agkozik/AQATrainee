@@ -3,17 +3,18 @@ package com.herokuapp.theinternet.uploadFilesTests;
 import com.herokuapp.theinternet.pages.UploadFiles;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.TestEngine;
+import testEngine.DataToTest;
 
-public class FileUploaderTests extends TestEngine {
+public class FileUploaderTests extends DataToTest {
 
-    @Test
-    void checkUploadedFileStatus(){
+    @Test(dataProvider = "files")
+    void checkUploadedFileStatus(String testNumber, String fileName){
+        log.info("Preparing data for "+testNumber+" uploading "+fileName);
     String messageText = new UploadFiles(getDriver(), log)
             .openUploadFilesPage()
-            .selectFileToUpload("1.txt")
+            .selectFileToUpload(fileName)
             .clickUploadButton()
             .getMessageText();
-        Assert.assertEquals(messageText,"1.txt");
+        Assert.assertEquals(messageText,fileName);
 }
 }
