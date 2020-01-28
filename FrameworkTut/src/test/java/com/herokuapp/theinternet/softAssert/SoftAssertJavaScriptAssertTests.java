@@ -1,8 +1,6 @@
 package com.herokuapp.theinternet.softAssert;
 
 import com.herokuapp.theinternet.pages.WelcomePage;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import testEngine.TestEngine;
