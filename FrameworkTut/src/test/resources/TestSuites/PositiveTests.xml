@@ -13,6 +13,7 @@
             <class name = "com.herokuapp.theinternet.wysiwygEditorTests.EditorTests"/>
             <class name = "com.herokuapp.theinternet.uploadFilesTests.FileUploaderTests"/>
             <class name = "com.herokuapp.theinternet.dragAndDropTests.DragAndDrop"/>
+            <class name = "com.herokuapp.theinternet.softAssert.SoftAssertJavaScriptAssertTests"/>
         </classes>
     </test>
 
@@ -27,6 +28,8 @@
             <class name = "com.herokuapp.theinternet.wysiwygEditorTests.EditorTests"/>
             <class name = "com.herokuapp.theinternet.uploadFilesTests.FileUploaderTests"/>
             <class name = "com.herokuapp.theinternet.dragAndDropTests.DragAndDrop"/>
+            <class name = "com.herokuapp.theinternet.softAssert.SoftAssertJavaScriptAssertTests"/>
+
         </classes>
     </test>
 
