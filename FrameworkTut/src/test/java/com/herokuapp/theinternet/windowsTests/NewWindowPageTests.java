@@ -20,7 +20,6 @@ public class NewWindowPageTests extends TestEngine {
                 .clickMultipleWindowsLink()
                 .clickOpenNewWindow()
                 .switchToNewOpenedWindowUsingTitle("New Window");
-        takeScreenshot();
         Assert.assertEquals(newWindowPage.getCurrentPageTitle(), "Test must be failed to AutoRetry");
     }
 

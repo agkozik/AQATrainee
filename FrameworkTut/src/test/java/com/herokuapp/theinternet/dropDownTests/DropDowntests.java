@@ -3,9 +3,10 @@ package com.herokuapp.theinternet.dropDownTests;
 import com.herokuapp.theinternet.pages.DropdownPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.herokuapp.theinternet.testEngine.TestEngine;
-
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class DropDowntests extends TestEngine {
 
     @Test

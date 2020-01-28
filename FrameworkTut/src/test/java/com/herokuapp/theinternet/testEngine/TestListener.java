@@ -42,6 +42,7 @@ public class TestListener extends TestEngine implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
+        this.testSuiteName = context.getCurrentXmlTest().getSuite().getName();
         this.testName=context.getCurrentXmlTest().getName();
         this.log= LogManager.getLogger(testName);
         log.info("[TEST "+testName+" STARTED]");

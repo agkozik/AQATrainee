@@ -4,6 +4,7 @@ import com.herokuapp.theinternet.pages.LoginPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.herokuapp.theinternet.testEngine.CsvDataProviders;
 import com.herokuapp.theinternet.testEngine.TestEngine;
@@ -11,7 +12,7 @@ import com.herokuapp.theinternet.testEngine.TestEngine;
 import java.util.Map;
 
 import static org.testng.Assert.*;
-
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class NegativeLogInTests extends TestEngine {
 
     @Test(priority = 1, dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)

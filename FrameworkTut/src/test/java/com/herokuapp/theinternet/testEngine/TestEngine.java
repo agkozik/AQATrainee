@@ -59,7 +59,7 @@ public class TestEngine {
         this.testSuiteName = ctx.getCurrentXmlTest().getSuite().getName();
         this.testName = ctx.getCurrentXmlTest().getName();
         this.testMethodName=method.getName();
-        log = LogManager.getLogger(testName);
+        this.log = LogManager.getLogger(testName);
     }
 
     public WebDriver getDriver() {
@@ -90,7 +90,6 @@ public class TestEngine {
 
     /**
      * Makes screenshot and put it in special folders (sorted it by Date and Class)
-     * @param fileName
      */
     public void takeScreenshotWithName(String fileName){
         File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
@@ -125,7 +124,7 @@ public class TestEngine {
                 +File.separator+testName
                 +File.separator+testMethodName
                 +File.separator+getSystemTime()
-                +" "+testMethodName+".png";
+                +" "+testName+"_"+testMethodName+".png";
         try
         {
             FileUtils.copyFile(screenshot,new File (path));
@@ -137,7 +136,6 @@ public class TestEngine {
 
     /**
      * Return SimpleDate ddMMyyyy to using in takeScreenshot method
-     * @return
      */
     private String getTodayDate() {
         return(new SimpleDateFormat("ddMMyyyy").format(new Date()));
@@ -155,7 +153,6 @@ public class TestEngine {
      */
     public List<LogEntry> getBrowserLogs(){
         LogEntries log=getDriver().manage().logs().get("browser");
-        List <LogEntry> logList = log.getAll();
-        return logList;
+        return log.getAll();
     }
 }

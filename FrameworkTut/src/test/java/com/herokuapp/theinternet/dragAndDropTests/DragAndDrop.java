@@ -3,9 +3,10 @@ package com.herokuapp.theinternet.dragAndDropTests;
 import com.herokuapp.theinternet.pages.DragAndDropPage;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.herokuapp.theinternet.testEngine.TestEngine;
-
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class DragAndDrop extends TestEngine {
     @Ignore
     @Test

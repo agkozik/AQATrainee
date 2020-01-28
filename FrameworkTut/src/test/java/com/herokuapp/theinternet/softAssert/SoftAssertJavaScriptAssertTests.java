@@ -1,10 +1,11 @@
 package com.herokuapp.theinternet.softAssert;
 
 import com.herokuapp.theinternet.pages.WelcomePage;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import com.herokuapp.theinternet.testEngine.TestEngine;
-
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class SoftAssertJavaScriptAssertTests extends TestEngine {
     @Test
     public void jsAlertTextIsEqualsExpected() {

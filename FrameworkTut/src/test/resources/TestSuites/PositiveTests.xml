@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="PositiveLoginTestSuite" verbose="1" parallel="methods" thread-count="2">
-    <test name="PositiveLoginTest-chrome">
+<suite name="PositiveTestSuite" verbose="2" parallel="classes" thread-count="2">
+    <test name="PositiveTest-chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name = "com.herokuapp.theinternet.loginPageTests.PositiveLogInTests"/>
@@ -14,10 +14,12 @@
             <class name = "com.herokuapp.theinternet.uploadFilesTests.FileUploaderTests"/>
             <class name = "com.herokuapp.theinternet.dragAndDropTests.DragAndDrop"/>
             <class name = "com.herokuapp.theinternet.softAssert.SoftAssertJavaScriptAssertTests"/>
+            <class name = "com.herokuapp.theinternet.javascriptErrorTests.jsErrorTest"/>
+
         </classes>
     </test>
 
-    <test name="PositiveLoginTest-firefox">
+    <test name="PositiveTest-firefox">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name = "com.herokuapp.theinternet.loginPageTests.PositiveLogInTests"/>
@@ -29,6 +31,7 @@
             <class name = "com.herokuapp.theinternet.uploadFilesTests.FileUploaderTests"/>
             <class name = "com.herokuapp.theinternet.dragAndDropTests.DragAndDrop"/>
             <class name = "com.herokuapp.theinternet.softAssert.SoftAssertJavaScriptAssertTests"/>
+            <class name = "com.herokuapp.theinternet.javascriptErrorTests.jsErrorTest"/>
 
         </classes>
     </test>
