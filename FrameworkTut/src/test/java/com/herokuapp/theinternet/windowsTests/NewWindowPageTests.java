@@ -17,7 +17,7 @@ public class NewWindowPageTests extends TestEngine {
                 .clickMultipleWindowsLink()
                 .clickOpenNewWindow()
                 .switchToNewOpenedWindowUsingTitle("New Window");
-        Assert.assertEquals(newWindowPage.getCurrentPageTitle(),"New Window");
+        Assert.assertEquals(newWindowPage.getCurrentPageTitle(),"Test must be failed to AutoRetry");
     }
 
     @Test(retryAnalyzer = RunTestAgain.class)
@@ -26,6 +26,6 @@ public class NewWindowPageTests extends TestEngine {
                 .openPage()
                 .clickMultipleWindowsLink()
                 .switchToNewWindowAndBack();
-        Assert.assertEquals(windowPage.getCurrentUrlFromBrowser(),"http://the-internet.herokuapp.com/windowsX");
+        Assert.assertEquals(windowPage.getCurrentUrlFromBrowser(),"http://the-internet.herokuapp.com/windows");
     }
 }

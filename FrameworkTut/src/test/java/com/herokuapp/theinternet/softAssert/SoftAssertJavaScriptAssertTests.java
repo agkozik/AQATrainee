@@ -14,8 +14,7 @@ public class SoftAssertJavaScriptAssertTests extends TestEngine {
                 .clickJavaScriptAlertLink()
                 .clickJSAlertButton()
                 .getAlertText();
-        softAssert.assertEquals(alertText, "First Check");
-        softAssert.assertEquals(alertText, "Second Check");
+        softAssert.assertTrue(alertText.contains("JS Alert"));
         softAssert.assertEquals(alertText, "I am a JS Alert");
         softAssert.assertAll("Soft Assert message");
     }

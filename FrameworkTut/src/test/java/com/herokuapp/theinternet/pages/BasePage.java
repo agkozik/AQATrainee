@@ -124,7 +124,7 @@ public class BasePage {
      */
     public String getCurrentPageTitle(){
         new WebDriverWait(driver,WAIT_IN_SEC)
-                .until(ExpectedConditions.titleContains(""));
+                .until(ExpectedConditions.urlContains("the-internet.herokuapp.com"));
         return driver.getTitle();
     }
 
