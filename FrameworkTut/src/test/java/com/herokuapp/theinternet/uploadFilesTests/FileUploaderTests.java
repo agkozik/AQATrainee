@@ -3,7 +3,7 @@ package com.herokuapp.theinternet.uploadFilesTests;
 import com.herokuapp.theinternet.pages.UploadFiles;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.DataToTest;
+import com.herokuapp.theinternet.testEngine.DataToTest;
 
 public class FileUploaderTests extends DataToTest {
 

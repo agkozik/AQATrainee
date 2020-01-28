@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 public class EditorTests extends TestEngine {
 

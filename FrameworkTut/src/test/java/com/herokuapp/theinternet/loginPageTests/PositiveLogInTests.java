@@ -4,7 +4,7 @@ import com.herokuapp.theinternet.pages.SecureAreaPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 public class PositiveLogInTests extends TestEngine {
 

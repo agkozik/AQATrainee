@@ -3,7 +3,7 @@ package com.herokuapp.theinternet.softAssert;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 public class SoftAssertJavaScriptAssertTests extends TestEngine {
     @Test

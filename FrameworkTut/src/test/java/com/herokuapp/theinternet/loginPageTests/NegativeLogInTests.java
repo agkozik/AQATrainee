@@ -5,8 +5,8 @@ import com.herokuapp.theinternet.pages.WelcomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.CsvDataProviders;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.CsvDataProviders;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 import java.util.Map;
 

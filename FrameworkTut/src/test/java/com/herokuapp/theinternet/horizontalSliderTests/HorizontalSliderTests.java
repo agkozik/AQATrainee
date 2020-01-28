@@ -3,7 +3,7 @@ package com.herokuapp.theinternet.horizontalSliderTests;
 import com.herokuapp.theinternet.pages.HorizontalSliderPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 public class HorizontalSliderTests extends TestEngine {
     @Test

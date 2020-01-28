@@ -4,7 +4,7 @@ import com.herokuapp.theinternet.pages.DragAndDropPage;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import testEngine.TestEngine;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 
 public class DragAndDrop extends TestEngine {
     @Ignore
