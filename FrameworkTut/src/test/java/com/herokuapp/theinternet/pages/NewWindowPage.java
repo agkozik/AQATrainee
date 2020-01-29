@@ -5,14 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ru.yandex.qatools.allure.annotations.Step;
 
-public class NewWindowPage extends BasePage{
+public class NewWindowPage extends BasePage {
 
     public NewWindowPage(WebDriver driver, Logger log) {
         super(driver, log);
     }
 
-    public NewWindowPage switchToNewOpenedWindowUsingTitle(String newWindowTitle){
+    @Step
+    public NewWindowPage switchToNewOpenedWindowUsingTitle(String newWindowTitle) {
         log.info("Switching to the new window...");
         switchToNewWindowByTitle(newWindowTitle);
         return this;

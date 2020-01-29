@@ -2,6 +2,7 @@ package com.herokuapp.theinternet.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class JavaScriptErrorPage extends BasePage {
 
@@ -11,6 +12,7 @@ public class JavaScriptErrorPage extends BasePage {
         super(driver, log);
     }
 
+    @Step
     public JavaScriptErrorPage openPage(){
         openUrl(url);
         return this;

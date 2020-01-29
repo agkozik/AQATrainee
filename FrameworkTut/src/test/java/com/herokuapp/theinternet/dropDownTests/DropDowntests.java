@@ -2,14 +2,22 @@ package com.herokuapp.theinternet.dropDownTests;
 
 import com.herokuapp.theinternet.pages.DropdownPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.herokuapp.theinternet.testEngine.TestEngine;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Severity;
+import ru.yandex.qatools.allure.model.SeverityLevel;
+
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class DropDowntests extends TestEngine {
 
     @Test
+    @Story("DropdownPage Test")
+    @Description("click On DropDown Item")
+    @Severity(SeverityLevel.MINOR)
     public void clickOnDropDownItem() {
         DropdownPage dropdownPage = new WelcomePage(getDriver(), log)
                 .openPage()
@@ -20,6 +28,9 @@ public class DropDowntests extends TestEngine {
     }
 
     @Test
+    @Story("DropdownPage Test")
+    @Description("click On Dropdown Item By using Value")
+    @Severity(SeverityLevel.MINOR)
     public void clickOnDropdownItemByValue() {
         DropdownPage dropdownPage = new WelcomePage(getDriver(), log)
                 .openPage()
@@ -29,6 +40,9 @@ public class DropDowntests extends TestEngine {
     }
 
     @Test
+    @Story("DropdownPage Test")
+    @Description("click On Dropdown Item By Array Index")
+    @Severity(SeverityLevel.MINOR)
     public void clickOnDropdownItemByArrayIndex() {
         DropdownPage dropdownPage = new WelcomePage(getDriver(), log)
                 .openPage()

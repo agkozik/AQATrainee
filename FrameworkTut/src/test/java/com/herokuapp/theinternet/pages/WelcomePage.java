@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @Getter
 public class WelcomePage extends BasePage {
@@ -21,6 +22,7 @@ public class WelcomePage extends BasePage {
         super(driver, log);
     }
 
+    @Step("Open page")
     public WelcomePage openPage() {
         log.info("Opening the MainPage " + pageUrl);
         openUrl(pageUrl);
@@ -31,6 +33,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open LogIn page by clicking on Form Authentication link in Welcome page
      */
+    @Step
     public LoginPage clickFormAuthenticationLink() {
         log.info("Clicking on Form Authentication link from Welcome page");
         click(authLink);
@@ -40,6 +43,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open checkboxes page by clicking on checkboxes link in Welcome page
      */
+    @Step("Open checkboxes page by clicking on checkboxes link in Welcome page")
     public CheckboxesPage clickCheckboxesLink() {
         log.info("Clicking on Checkboxes Link");
         click(checkboxesLink);
@@ -50,6 +54,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open Dropdown page by clicking on Dropdown link in Welcome page
      */
+    @Step
     public DropdownPage clickDropdownLink() {
         log.info("Clicking Dropdown link");
         click(dropDownLink);
@@ -60,6 +65,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open Dropdown page by clicking on JavaScriptAlert link in Welcome page
      */
+    @Step
     public JavaScriptAlertsPage clickJavaScriptAlertLink() {
         log.info("Clicking JavaScriptAlert link");
         click(javaScriptAlertsLink);
@@ -70,6 +76,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open WindowPage by clicking multipleWindows link
      */
+    @Step
     public WindowPage clickMultipleWindowsLink() {
         log.info("Clicking on link");
         click(multipleWindowsLink);
@@ -80,6 +87,7 @@ public class WelcomePage extends BasePage {
     /**
      * Open wysiwyg Editor (work with iFrame)
      */
+    @Step
     public WysiwygEditorPage clickOnWysiwygEditorLink() {
         scrollToBottom();
         click(wysiwygEditorLink);

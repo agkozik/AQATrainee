@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @Getter
 public class LoginPage extends BasePage {
@@ -19,26 +20,32 @@ public class LoginPage extends BasePage {
         super(driver, log);
     }
 
+    @Step
     public LoginPage enterUserNameAndPassword(String userName, String password) {
-        log.info("Typing user="+userName+" , password="+password);
+        log.info("Typing user=" + userName + " , password=" + password);
         type(userName, fieldUserName);
         type(password, fieldUserPassword);
         return this;
     }
 
+    @Step
     public SecureAreaPage clickLoginButton() {
         log.info("Click on LogIN Button");
         click(loginButton);
-        log.info("Go to new page "+driver.getCurrentUrl());
+        log.info("Go to new page " + driver.getCurrentUrl());
         return new SecureAreaPage(driver, log);
     }
 
-    /** Wait for error message to be visible on the page */
+    /**
+     * Wait for error message to be visible on the page
+     */
+    @Step
     public void waitForErrorMessage() {
         waitForVisibilityOf(errorMessageLocator, 5);
     }
 
-    public String getTextErrorMessageFromPage(){
+    @Step
+    public String getTextErrorMessageFromPage() {
         return find(errorMessageLocator).getText();
     }
 }

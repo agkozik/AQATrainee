@@ -3,6 +3,7 @@ package com.herokuapp.theinternet.pages;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class WindowPage extends BasePage {
 
@@ -12,12 +13,14 @@ public class WindowPage extends BasePage {
         super(driver, log);
     }
 
+    @Step
     public NewWindowPage clickOpenNewWindow() {
         click(clickHereLink);
         return new NewWindowPage(driver, log);
     }
 
-    public WindowPage switchToNewWindowAndBack(){
+    @Step
+    public WindowPage switchToNewWindowAndBack() {
         //remember first window
         String firstWindow = driver.getWindowHandle();
         click(clickHereLink);

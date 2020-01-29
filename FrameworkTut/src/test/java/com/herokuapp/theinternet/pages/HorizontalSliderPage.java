@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class HorizontalSliderPage extends BasePage {
     String url = "http://the-internet.herokuapp.com/horizontal_slider";
@@ -16,15 +17,17 @@ public class HorizontalSliderPage extends BasePage {
         super(driver, log);
     }
 
+    @Step
     public HorizontalSliderPage openPage() {
         openUrl(url);
         return this;
     }
 
-    public String getCurrentValue(){
+    public String getCurrentValue() {
         return find(sliderCurrentValue).getText();
     }
 
+    @Step
     public HorizontalSliderPage moveSliderToCurrentValue(double i) {
         int width = find(horizontalSlider).getSize().width;
         log.info("SliderWidth=" + width);
@@ -39,10 +42,11 @@ public class HorizontalSliderPage extends BasePage {
         return this;
     }
 
+    @Step
     public HorizontalSliderPage moveSliderToCurrentValueUsingSteps(double value) {
         int steps = (int) (value / Double.parseDouble(find(horizontalSlider).getAttribute("step")));
         pressKey(horizontalSlider, Keys.ENTER);
-        for (int i=0; i<steps;i++){
+        for (int i = 0; i < steps; i++) {
             pressKey(horizontalSlider, Keys.ARROW_RIGHT);
         }
         return this;

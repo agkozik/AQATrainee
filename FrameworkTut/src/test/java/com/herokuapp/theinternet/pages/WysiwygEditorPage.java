@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class WysiwygEditorPage extends BasePage {
 
@@ -14,10 +15,11 @@ public class WysiwygEditorPage extends BasePage {
         super(driver, log);
     }
 
-    public WysiwygEditorPage clickOnTextFieldAndTypeText(String text){
+    @Step
+    public WysiwygEditorPage clickOnTextFieldAndTypeText(String text) {
         switchToFrameByLocator(iFrame);
         find(textFieldInFrame).clear();
-        type(text,textFieldInFrame);
+        type(text, textFieldInFrame);
         return this;
     }
 }

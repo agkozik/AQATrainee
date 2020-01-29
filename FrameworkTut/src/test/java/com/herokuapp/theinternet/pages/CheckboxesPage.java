@@ -1,5 +1,6 @@
 package com.herokuapp.theinternet.pages;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -20,6 +21,7 @@ public class CheckboxesPage extends BasePage {
         super(driver, log);
     }
 
+    @Step("Choose Checkbox By Text")
     public CheckboxesPage chooseCheckboxByText(String text) {
         List<WebElement> checkboxes = findAll(checkbox);
         for (WebElement i : checkboxes) {
@@ -29,6 +31,7 @@ public class CheckboxesPage extends BasePage {
         return this;
     }
 
+    @Step("choose All Checkboxes")
     public CheckboxesPage chooseAllCheckboxes() {
         List<WebElement> checkboxes = findAll(checkbox);
         for (WebElement i : checkboxes) {
@@ -38,6 +41,7 @@ public class CheckboxesPage extends BasePage {
         return this;
     }
 
+    @Step("Unselect All Checkboxes")
     public CheckboxesPage unselectAllCheckboxes() {
         List<WebElement> checkboxes = findAll(checkbox);
         for (WebElement i : checkboxes) {
@@ -47,6 +51,7 @@ public class CheckboxesPage extends BasePage {
         return this;
     }
 
+    @Step("Are All Checkboxes Selected")
     public boolean areAllCheckboxesSelected() {
         List<WebElement> checkboxes = findAll(checkbox);
         for (WebElement i : checkboxes) {

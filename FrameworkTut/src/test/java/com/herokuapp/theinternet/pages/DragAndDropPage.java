@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class DragAndDropPage extends BasePage {
 
@@ -18,16 +19,17 @@ public class DragAndDropPage extends BasePage {
         super(driver, log);
     }
 
-    public WebElement getElementA(){
+    public WebElement getElementA() {
         return find(elementA);
     }
 
-    public WebElement getElementB(){
+    public WebElement getElementB() {
         return find(elementB);
     }
 
+    @Step
     public DragAndDropPage openPage() {
-        log.info("Opening page "+url);
+        log.info("Opening page " + url);
         openUrl(url);
         return this;
     }
@@ -35,14 +37,15 @@ public class DragAndDropPage extends BasePage {
     /**
      * May not work on html pages
      */
+    @Step
     public DragAndDropPage dragAndDropUsingActions() {
         log.info("drag And Drop Using actions.dragAndDrop(find(elementA), find(elementB))");
         Actions actions = new Actions(driver);
         actions.dragAndDrop(find(elementA), find(elementB)).build().perform();
         return this;
     }
-
-    public DragAndDropPage clickAndHoldAAndMoveToB(){
+    @Step
+    public DragAndDropPage clickAndHoldAAndMoveToB() {
         log.info("drag And Drop Using actions.");
         Actions actions = new Actions(driver);
         actions.clickAndHold(find(elementA)).moveToElement(find(elementB)).release().build().perform();
@@ -52,6 +55,7 @@ public class DragAndDropPage extends BasePage {
     /**
      * Works on different pages
      */
+    @Step
     public DragAndDropPage dragAndDropUsingJavascript(WebElement from, WebElement to) {
         log.info("drag And Drop Using JavascriptExecutor");
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -73,12 +77,12 @@ public class DragAndDropPage extends BasePage {
                 + "simulateHTML5DragAndDrop(source,destination);", from, to);
         return this;
     }
-
-    public String getTextFromLeftElement(){
+    @Step
+    public String getTextFromLeftElement() {
         return find(elementA).getText();
     }
-
-    public String getTextFromRightElement(){
+    @Step
+    public String getTextFromRightElement() {
         return find(elementB).getText();
     }
 }

@@ -2,18 +2,23 @@ package com.herokuapp.theinternet.checkboxesTests;
 
 import com.herokuapp.theinternet.pages.CheckboxesPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.TestEngine;
-
-import java.io.IOException;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Severity;
+import ru.yandex.qatools.allure.model.SeverityLevel;
 
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class CheckBoxesTests extends TestEngine {
 
     @Test
+    @Story("Checking CheckBox data")
+    @Description("Select second checkbox and check if the first checkbox is selected")
+    @Severity(SeverityLevel.MINOR)
     public void clickOnCheckBox() {
         CheckboxesPage checkboxesPage = new WelcomePage(getDriver(), log)
                 .openPage()
@@ -46,7 +51,7 @@ public class CheckBoxesTests extends TestEngine {
 
     @Ignore
     @Test
-    public void chooseFirstCheckboxOnPage() throws IOException {
+    public void chooseFirstCheckboxOnPage() {
         int index = 2;
         CheckboxesPage checkboxesPage = new WelcomePage(getDriver(), log)
                 .openPage()

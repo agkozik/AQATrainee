@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @Getter
 public class DropdownPage extends BasePage {
@@ -17,11 +18,13 @@ public class DropdownPage extends BasePage {
         super(driver, log);
     }
 
+    @Step
     public DropdownPage clickOnDropDownField() {
         click(dropDownField);
         return this;
     }
 
+    @Step
     public DropdownPage selectDropDownValueByText(String text) {
         String xPath = "//option[contains(text(),'%s')]";
         new WebDriverWait(driver, WAIT_IN_SEC)
@@ -30,20 +33,23 @@ public class DropdownPage extends BasePage {
         return this;
     }
 
-    public DropdownPage selectDropDownItemByValue(String itemValue){
-        Select dropDownItem= new Select(find(dropDownField));
+    @Step
+    public DropdownPage selectDropDownItemByValue(String itemValue) {
+        Select dropDownItem = new Select(find(dropDownField));
         dropDownItem.selectByValue(itemValue);
         return this;
     }
 
-    public DropdownPage selectDropDownItemByIndex(int itemIndex){
-        Select dropDownItem= new Select(find(dropDownField));
+    @Step
+    public DropdownPage selectDropDownItemByIndex(int itemIndex) {
+        Select dropDownItem = new Select(find(dropDownField));
         dropDownItem.selectByIndex(itemIndex);
         return this;
     }
 
-    public String getSelectedItemFromDropdown(){
-        Select dropDownItem= new Select(find(dropDownField));
+    @Step
+    public String getSelectedItemFromDropdown() {
+        Select dropDownItem = new Select(find(dropDownField));
         return dropDownItem.getFirstSelectedOption().getText();
     }
 }

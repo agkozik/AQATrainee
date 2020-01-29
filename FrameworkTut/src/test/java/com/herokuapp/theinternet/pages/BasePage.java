@@ -1,11 +1,13 @@
 package com.herokuapp.theinternet.pages;
 
+
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 import java.util.Set;
@@ -23,6 +25,7 @@ public class BasePage {
     /**
      * Open page by URL
      */
+    @Step("Open page by URL")
     public void openUrl(String url) {
         driver.get(url);
     }
@@ -31,17 +34,17 @@ public class BasePage {
      * Find element by given locator find=driver.findElement(locator)
      */
     public WebElement find(By locator) {
-        log.info("Find element by locator "+locator);
-        return new WebDriverWait(driver,WAIT_IN_SEC)
+        log.info("Find element by locator " + locator);
+        return new WebDriverWait(driver, WAIT_IN_SEC)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     /**
      * Find all  elements (List<WebElement>) by given locator findAll=driver.findElementS(locator)
      */
-    public List<WebElement> findAll(By locator){
-        log.info("Find element by locator "+locator);
-        new WebDriverWait(driver,WAIT_IN_SEC)
+    public List<WebElement> findAll(By locator) {
+        log.info("Find element by locator " + locator);
+        new WebDriverWait(driver, WAIT_IN_SEC)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElements(locator);
     }
@@ -65,22 +68,22 @@ public class BasePage {
     /**
      * Type text using actions
      */
-    public void pressKeysWithActions(Keys key){
-        log.info("Press keys " + key+" using Actions");
+    public void pressKeysWithActions(Keys key) {
+        log.info("Press keys " + key + " using Actions");
         Actions actions = new Actions(driver);
         actions.sendKeys(key).build().perform();
     }
 
 
-    public void pressKey(By locator,Keys key){
+    public void pressKey(By locator, Keys key) {
         find(locator).sendKeys(key);
     }
 
     /**
      * Select all Ctrl+a
      */
-    public BasePage pressCtrlA(WebElement webElement){
-        String action =Keys.chord(Keys.CONTROL,"a");
+    public BasePage pressCtrlA(WebElement webElement) {
+        String action = Keys.chord(Keys.CONTROL, "a");
         webElement.sendKeys(action);
         return this;
     }
@@ -88,8 +91,8 @@ public class BasePage {
     /**
      * Select all Ctrl+x
      */
-    public BasePage pressCtrlX(WebElement webElement){
-        String action =Keys.chord(Keys.CONTROL,"x");
+    public BasePage pressCtrlX(WebElement webElement) {
+        String action = Keys.chord(Keys.CONTROL, "x");
         webElement.sendKeys(action);
         return this;
     }
@@ -97,8 +100,8 @@ public class BasePage {
     /**
      * Paste Ctrl+v
      */
-    public BasePage pressCtrlV(WebElement webElement){
-        String action =Keys.chord(Keys.CONTROL,"v");
+    public BasePage pressCtrlV(WebElement webElement) {
+        String action = Keys.chord(Keys.CONTROL, "v");
         webElement.sendKeys(action);
         return this;
     }
@@ -106,8 +109,8 @@ public class BasePage {
     /**
      * Copy Ctrl+c
      */
-    public BasePage pressCtrlC(WebElement webElement){
-        String action =Keys.chord(Keys.CONTROL,"c");
+    public BasePage pressCtrlC(WebElement webElement) {
+        String action = Keys.chord(Keys.CONTROL, "c");
         webElement.sendKeys(action);
         return this;
     }
@@ -122,8 +125,8 @@ public class BasePage {
     /**
      * Get current Page Title, from current page
      */
-    public String getCurrentPageTitle(){
-        new WebDriverWait(driver,WAIT_IN_SEC)
+    public String getCurrentPageTitle() {
+        new WebDriverWait(driver, WAIT_IN_SEC)
                 .until(ExpectedConditions.urlContains("the-internet.herokuapp.com"));
         return driver.getTitle();
     }
@@ -131,7 +134,7 @@ public class BasePage {
     /**
      * Get current PageSource, from current page
      */
-    public String getCurrentPageSource(){
+    public String getCurrentPageSource() {
         return driver.getPageSource();
     }
 
@@ -163,16 +166,16 @@ public class BasePage {
     /**
      * Wait for Alert and swith to it
      */
-    public Alert switchToAlert(){
-        WebDriverWait wait = new WebDriverWait(driver,WAIT_IN_SEC);
-                wait.until(ExpectedConditions.alertIsPresent());
+    public Alert switchToAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_IN_SEC);
+        wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert();
     }
 
     /**
      * Switch to new window in browser by title
      */
-    public void switchToNewWindowByTitle(String expectedTitle){
+    public void switchToNewWindowByTitle(String expectedTitle) {
         String firstWindow = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
 
@@ -189,14 +192,14 @@ public class BasePage {
     /**
      * Switch To Frame by locator
      */
-    public void switchToFrameByLocator(By locator){
+    public void switchToFrameByLocator(By locator) {
         driver.switchTo().frame(find(locator));
     }
 
     /**
      * Scroll page to the bottom using JavaScript Executor
      */
-    public void scrollToBottom(){
+    public void scrollToBottom() {
         log.info("Scrolling to the bottom...");
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
