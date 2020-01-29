@@ -91,7 +91,7 @@ public class TestEngine {
     /**
      * Makes screenshot and put it in special folders (sorted it by Date and Class)
      */
-    public void takeScreenshotWithName(String fileName){
+    public void takeScreenshotWithEnterName(String fileName){
         File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
         String path = System.getProperty("user.dir")
                 +File.separator+"test-output"
