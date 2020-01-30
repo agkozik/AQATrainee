@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Parallel test suite]" parallel="methods">
+  <test thread-count="4" verbose="0" name="Regression 2(failed)" parallel="methods">
+    <parameter name="myBrowser" value="chrome"/>
+    <classes>
+      <class name="TestDropDownClick">
+        <methods>
+          <include name="chooseMonthOfBirthdayDropDown"/>
+          <include name="chooseYearOfBirthdayDropDown"/>
+          <include name="clickByYear"/>
+          <include name="afterClass"/>
+          <include name="chooseDayOfBirthdayDropDown"/>
+          <include name="clickByDate"/>
+          <include name="clickByMonth"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- TestDropDownClick -->
+    </classes>
+  </test> <!-- Regression 2(failed) -->
+  <test thread-count="4" verbose="0" name="Regression 1(failed)" parallel="methods">
+    <parameter name="myBrowser" value="firefox"/>
+    <classes>
+      <class name="TestDropDownClick">
+        <methods>
+          <include name="chooseMonthOfBirthdayDropDown"/>
+          <include name="chooseYearOfBirthdayDropDown"/>
+          <include name="clickByYear"/>
+          <include name="afterClass"/>
+          <include name="chooseDayOfBirthdayDropDown"/>
+          <include name="clickByDate"/>
+          <include name="clickByMonth"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- TestDropDownClick -->
+    </classes>
+  </test> <!-- Regression 1(failed) -->
+</suite> <!-- Failed suite [Parallel test suite] -->

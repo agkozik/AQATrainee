@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="2.137" tests="54" errors="0" skipped="46" failures="8">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-booter\2.22.1\surefire-booter-2.22.1.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-api\2.22.1\surefire-api-2.22.1.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-logger-api\2.22.1\surefire-logger-api-2.22.1.jar;C:\AND\AQATrainee\SeleniumWorkWithCombobox\target\test-classes;C:\AND\AQATrainee\SeleniumWorkWithCombobox\target\classes;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Aleksandr\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Aleksandr\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\Aleksandr\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Aleksandr\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\Aleksandr\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\Aleksandr\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\Aleksandr\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\Aleksandr\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Aleksandr\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Aleksandr\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\Aleksandr\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\Aleksandr\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\Aleksandr\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Aleksandr\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Aleksandr\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\Aleksandr\.m2\repository\org\projectlombok\lombok\1.16.14\lombok-1.16.14.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-testng\2.22.1\surefire-testng-2.22.1.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\common-java5\2.22.1\common-java5-2.22.1.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-testng-utils\2.22.1\surefire-testng-utils-2.22.1.jar;C:\Users\Aleksandr\.m2\repository\org\apache\maven\surefire\surefire-grouper\2.22.1\surefire-grouper-2.22.1.jar"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Minsk"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_221\jre\bin"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Aleksandr\AppData\Local\Temp\surefire2390769534388863940 2020-01-18T16-30-04_240-jvmRun1 surefire4286122590342262547tmp surefire_05634582106141763494tmp"/>
+    <property name="surefire.test.class.path" value="C:\AND\AQATrainee\SeleniumWorkWithCombobox\target\test-classes;C:\AND\AQATrainee\SeleniumWorkWithCombobox\target\classes;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Aleksandr\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Aleksandr\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Aleksandr\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\Aleksandr\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Aleksandr\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\Aleksandr\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\Aleksandr\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\Aleksandr\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\Aleksandr\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Aleksandr\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Aleksandr\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\Aleksandr\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\Aleksandr\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\Aleksandr\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Aleksandr\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Aleksandr\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\Aleksandr\.m2\repository\org\projectlombok\lombok\1.16.14\lombok-1.16.14.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="allure.results.directory" value="C:\AND\AQATrainee\SeleniumWorkWithCombobox\target/allure-results"/>
+    <property name="user.home" value="C:\Users\Aleksandr"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_221\jre"/>
+    <property name="basedir" value="C:\AND\AQATrainee\SeleniumWorkWithCombobox"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_221\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_221-b11"/>
+    <property name="user.name" value="Aleksandr"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Aleksandr\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ALEKSA~1\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_221"/>
+    <property name="user.dir" value="C:\AND\AQATrainee\SeleniumWorkWithCombobox"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="idea.version2019.3.1" value="true"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_221\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\Aleksandr\Downloads\WINDOWS.X64_193000_db_home\bin;C:\app\root\product\12.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Александр\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\NVPACK\gradle-2.9\bin;C:\NVPACK\apache-ant-1.8.2\bin;C:\NVPACK\jdk1.8.0_77\bin;C:\NVPACK\android-ndk-r12b;C:\NVPACK\android-sdk-windows\extras\android\support;C:\NVPACK\android-sdk-windows\build-tools;C:\NVPACK\android-sdk-windows\platform-tools;C:\NVPACK\android-sdk-windows\tools;C:\Users\Александр\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Java\jdk1.8.0_221\bin;c:\Maven\bin\;c:\jython2.7.1\bin\;c:\Program Files\Java\apache-zookeeper-3.5.6-bin\bin\;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Aleksandr\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.1\bin;;c:\Program Files\apache-jmeter-5.1.1\bin\;C:\Program Files\Java\jdk1.8.0_221\bin;c:\webdrivers;;C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.1\bin;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.221-b11"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="1.826">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Command duration or timeout: 292 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:27)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+    <system-err><![CDATA[янв 18, 2020 4:30:05 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:05 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:05 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:05 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+]]></system-err>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="1.827">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Command duration or timeout: 292 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:27)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="1.827">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Command duration or timeout: 292 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:27)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="1.828">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Command duration or timeout: 292 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:27)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0.103">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Command duration or timeout: 23 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:32)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+    <system-err><![CDATA[янв 18, 2020 4:30:06 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:06 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:06 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+янв 18, 2020 4:30:06 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+]]></system-err>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0.001">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 15 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Command duration or timeout: 15 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:32)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 16 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Command duration or timeout: 16 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:32)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0.001">
+    <failure message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 22 milliseconds" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Command duration or timeout: 22 milliseconds
+	at TestDropDownClick.beforeClass(TestDropDownClick.java:32)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8H0MF42', ip: '192.168.100.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+</failure>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="beforeClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="clickByDate" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="clickByDate" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseYearOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseYearOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseYearOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseYearOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseDayOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseDayOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseDayOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseDayOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseMonthOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseMonthOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="chooseMonthOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="chooseMonthOfBirthdayDropDown" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="afterClass" classname="TestDropDownClick" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="clickByMonth" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="clickByMonth" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+  <testcase name="clickByYear" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: chrome, platform: WINDOWS, version: }&#10;Command duration or timeout: 292 milliseconds"/>
+  </testcase>
+  <testcase name="clickByYear" classname="TestDropDownClick" time="0">
+    <skipped message="Error forwarding the new session Empty pool of VM for setup Capabilities {browserName: firefox, platform: WINDOWS, version: }&#10;Command duration or timeout: 23 milliseconds"/>
+  </testcase>
+</testsuite>
