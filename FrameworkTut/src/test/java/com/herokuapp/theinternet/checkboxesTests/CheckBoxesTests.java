@@ -8,10 +8,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class CheckBoxesTests extends TestEngine {
@@ -28,7 +26,6 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertTrue(checkboxesPage.returnSelectedCheckboxes().get(0));
     }
 
-    @Ignore
     @Test
     public void chooseAllCheckBoxes() {
         boolean checkboxesSelected = new WelcomePage(getDriver(), log)
@@ -39,7 +36,6 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertTrue(checkboxesSelected);
     }
 
-    @Ignore
     @Test
     public void unchooseAllCheckBoxes() {
         boolean checkboxesSelected = new WelcomePage(getDriver(), log)
@@ -50,7 +46,6 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertFalse(checkboxesSelected);
     }
 
-    @Ignore
     @Test
     public void chooseFirstCheckboxOnPage() {
         int index = 2;

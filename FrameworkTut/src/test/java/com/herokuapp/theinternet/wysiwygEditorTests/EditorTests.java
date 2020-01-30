@@ -2,12 +2,13 @@ package com.herokuapp.theinternet.wysiwygEditorTests;
 
 import com.herokuapp.theinternet.pages.WelcomePage;
 import com.herokuapp.theinternet.pages.WysiwygEditorPage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.TestEngine;
+
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class EditorTests extends TestEngine {
 

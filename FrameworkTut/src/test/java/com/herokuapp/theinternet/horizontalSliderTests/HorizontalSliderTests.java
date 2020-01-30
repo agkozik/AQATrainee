@@ -1,10 +1,10 @@
 package com.herokuapp.theinternet.horizontalSliderTests;
 
 import com.herokuapp.theinternet.pages.HorizontalSliderPage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.TestEngine;
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class HorizontalSliderTests extends TestEngine {
     @Test

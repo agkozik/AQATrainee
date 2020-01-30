@@ -8,7 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.annotations.Listeners;
 
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class TestListener extends TestEngine implements ITestListener {
 
     private static String getTestMethodName(ITestResult iTestResult) {
@@ -17,19 +19,9 @@ public class TestListener extends TestEngine implements ITestListener {
 
     // Text attachments for Allure
     @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshotPNG(WebDriver driver) {
+    public byte[] saveScreenshotPNGToAllureReport(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-    @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshot(byte[] screenShot) {
-        return screenShot;
-    }
-
-    @Attachment(value = "{0}", type = "image/png")
-    public static byte[] makeScreenshot(String name) {
-        return ((TakesScreenshot) dr.get()).getScreenshotAs(OutputType.BYTES);
-    }
-
 
     // Text attachments for Allure
     @Attachment(value = "{0}", type = "text/plain")
@@ -61,12 +53,10 @@ public class TestListener extends TestEngine implements ITestListener {
         // Allure ScreenShotRobot and SaveTestLog
         if (dr.get() != null) {
             System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
-            saveScreenshotPNG(getDriver());
-            takeScreenshot();
-            makeScreenshot("fuyfiuyfity");
+            saveScreenshotPNGToAllureReport(getDriver());
         }
         // Save a log on allure.
-        saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
+        saveTextLog("Test "+getTestMethodName(iTestResult) + " failed and screenshot taken!");
     }
 
 

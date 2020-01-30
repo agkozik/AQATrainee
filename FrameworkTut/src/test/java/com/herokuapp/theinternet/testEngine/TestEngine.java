@@ -12,11 +12,11 @@ import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class TestEngine {
     //ThreadLocal will keep local copy of driver
     public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<>();
@@ -71,7 +72,10 @@ public class TestEngine {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void closeDriver() {
+    public void closeDriver(ITestResult result) {
+        if(result.FAILURE == result.getStatus()){
+            takeScreenshotToProjectDirectory();
+        }
         log.info("Driver has been closed");
         getDriver().quit();
         dr.set(null);
@@ -80,8 +84,8 @@ public class TestEngine {
     /**
      * Take screenshot with time and
      */
-    public void takeScreenshotToCTmpDirectory() throws IOException {
-        File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+    public void takeScreenshotToHDDCTmpDirectory() throws IOException {
+        File screenshot = ((TakesScreenshot) dr.get()).getScreenshotAs(OutputType.FILE);
         Date dataNow = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss");
         String dynamicNameForScreenshot = simpleDateFormat.format(dataNow) + ".png";
@@ -92,7 +96,7 @@ public class TestEngine {
      * Makes screenshot and put it in special folders (sorted it by Date and Class)
      */
     public void takeScreenshotWithEnterName(String fileName){
-        File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        File screenshot = ((TakesScreenshot) dr.get()).getScreenshotAs(OutputType.FILE);
         String path = System.getProperty("user.dir")
                 +File.separator+"test-output"
                 +File.separator+"screenshots"
@@ -114,8 +118,8 @@ public class TestEngine {
     /**
      * Makes screenshot and put it in special folders (sorted it by Date and Class)
      */
-    public void takeScreenshot(){
-        File screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+    public void takeScreenshotToProjectDirectory(){
+        File screenshot = ((TakesScreenshot) dr.get()).getScreenshotAs(OutputType.FILE);
         String path = System.getProperty("user.dir")
                 +File.separator+"test-output"
                 +File.separator+"screenshots"

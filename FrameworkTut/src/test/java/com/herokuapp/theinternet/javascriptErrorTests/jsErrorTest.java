@@ -1,11 +1,11 @@
 package com.herokuapp.theinternet.javascriptErrorTests;
 
 import com.herokuapp.theinternet.pages.JavaScriptErrorPage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import org.openqa.selenium.logging.LogEntry;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import com.herokuapp.theinternet.testEngine.TestEngine;
 
 import java.util.List;
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})

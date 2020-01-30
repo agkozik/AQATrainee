@@ -2,12 +2,12 @@ package com.herokuapp.theinternet.javaScriptAlertTests;
 
 import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.TestEngine;
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class JavaScriptAlertsTests extends TestEngine {
 

@@ -10,7 +10,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({ com.herokuapp.theinternet.testEngine.TestListener.class })
+@Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class NewWindowPageTests extends TestEngine {
 
     @Test(retryAnalyzer = RunTestAgain.class)

@@ -2,16 +2,17 @@ package com.herokuapp.theinternet.loginPageTests;
 
 import com.herokuapp.theinternet.pages.LoginPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
+import com.herokuapp.theinternet.testEngine.CsvDataProviders;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.CsvDataProviders;
-import com.herokuapp.theinternet.testEngine.TestEngine;
 
 import java.util.Map;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class NegativeLogInTests extends TestEngine {
 
@@ -32,15 +33,12 @@ public class NegativeLogInTests extends TestEngine {
 
         // Click on Form Authentication link
         LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
-
         // execute negative login
         loginPage.enterUserNameAndPassword(username,password);
         loginPage.clickLoginButton();
-
         // wait for error message
         loginPage.waitForErrorMessage();
         String message = loginPage.getTextErrorMessageFromPage();
-
         // Verification
         Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
     }

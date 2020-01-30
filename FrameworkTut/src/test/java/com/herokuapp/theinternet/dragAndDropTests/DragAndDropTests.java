@@ -1,6 +1,7 @@
 package com.herokuapp.theinternet.dragAndDropTests;
 
 import com.herokuapp.theinternet.pages.DragAndDropPage;
+import com.herokuapp.theinternet.testEngine.TestEngine;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -9,11 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.herokuapp.theinternet.testEngine.TestEngine;
-
 
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
-public class DragAndDrop extends TestEngine {
+public class DragAndDropTests extends TestEngine {
     @Ignore
     @Test
     void dragAtoB(){
