@@ -9,9 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>FrameworkTut</artifactId>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <allure-testng.version>2.6.0</allure-testng.version>
     </properties>
     <dependencies>
         <dependency>
@@ -22,8 +25,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>test</scope>
+            <version>7.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -51,29 +53,16 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
-
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-maven-plugin</artifactId>
-            <version>2.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-java-commons</artifactId>
-            <version>2.13.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-testng-adaptor</artifactId>
-            <version>1.5.4</version>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
-            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
         </dependency>
 
 
@@ -81,37 +70,28 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.9</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <reportVersion>2.7.0</reportVersion>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/TestSuites/CheckBoxes.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/allure-results</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/resources</directory>
-                                    <includes>
-                                        <include>environment.properties</include>
-                                        <include>categories.json</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -123,28 +103,14 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/TestSuites/CheckBoxes.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
-                    <systemPropertyVariables>-->
-                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-                    </systemPropertyVariables>
+                    <reportVersion>2.6.0</reportVersion>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
+
 </project>

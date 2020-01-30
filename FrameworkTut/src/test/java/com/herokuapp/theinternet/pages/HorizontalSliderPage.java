@@ -1,11 +1,11 @@
 package com.herokuapp.theinternet.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import ru.yandex.qatools.allure.annotations.Step;
 
 public class HorizontalSliderPage extends BasePage {
     String url = "http://the-internet.herokuapp.com/horizontal_slider";

@@ -1,10 +1,10 @@
 package com.herokuapp.theinternet.pages;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.allure.annotations.Step;
 
 @Getter
 public class WelcomePage extends BasePage {

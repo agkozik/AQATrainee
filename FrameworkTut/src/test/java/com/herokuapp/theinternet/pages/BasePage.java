@@ -1,13 +1,13 @@
 package com.herokuapp.theinternet.pages;
 
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 import java.util.Set;

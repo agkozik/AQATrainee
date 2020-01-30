@@ -1,9 +1,9 @@
 package com.herokuapp.theinternet.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.allure.annotations.Step;
 
 public class UploadFiles extends BasePage {
 

@@ -11,11 +11,25 @@ import org.testng.ITestResult;
 
 public class TestListener extends TestEngine implements ITestListener {
 
+    private static String getTestMethodName(ITestResult iTestResult) {
+        return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
+
     // Text attachments for Allure
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshotPNG(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
+    }
+
+    @Attachment(value = "{0}", type = "image/png")
+    public static byte[] makeScreenshot(String name) {
+        return ((TakesScreenshot) dr.get()).getScreenshotAs(OutputType.BYTES);
+    }
+
 
     // Text attachments for Allure
     @Attachment(value = "{0}", type = "text/plain")
@@ -41,12 +55,20 @@ public class TestListener extends TestEngine implements ITestListener {
     }
 
     @Override
-    public void onTestFailure(ITestResult result) {
+    public void onTestFailure(ITestResult iTestResult) {
         log.info("[TEST "+testMethodName+" FAILED]");
         log.info("[Screenshot has been put to the test-output directory]");
-        takeScreenshot();
-        saveScreenshotPNG(getDriver());
+        // Allure ScreenShotRobot and SaveTestLog
+        if (dr.get() != null) {
+            System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
+            saveScreenshotPNG(getDriver());
+            takeScreenshot();
+            makeScreenshot("fuyfiuyfity");
+        }
+        // Save a log on allure.
+        saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
     }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {
