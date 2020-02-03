@@ -12,8 +12,6 @@ import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -46,12 +44,16 @@ public class TestEngine {
         if (browser.equals("chrome")) {
             DesiredCapabilities capability = DesiredCapabilities.chrome();
             capability.setBrowserName("chrome");
+//            capability.setVersion("79.0.3945.117");
             capability.setPlatform(Platform.WINDOWS);
+
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         } else if (browser.equals("firefox")) {
             DesiredCapabilities capability = DesiredCapabilities.firefox();
             capability.setBrowserName("firefox");
+//            capability.setVersion("72.0.1");
             capability.setPlatform(Platform.WINDOWS);
+
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         }
         setWebDriver(driver);
