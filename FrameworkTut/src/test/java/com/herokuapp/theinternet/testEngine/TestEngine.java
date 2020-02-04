@@ -44,14 +44,12 @@ public class TestEngine {
         if (browser.equals("chrome")) {
             DesiredCapabilities capability = DesiredCapabilities.chrome();
             capability.setBrowserName("chrome");
-//            capability.setVersion("79.0.3945.117");
             capability.setPlatform(Platform.WINDOWS);
 
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
         } else if (browser.equals("firefox")) {
             DesiredCapabilities capability = DesiredCapabilities.firefox();
             capability.setBrowserName("firefox");
-//            capability.setVersion("72.0.1");
             capability.setPlatform(Platform.WINDOWS);
 
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
