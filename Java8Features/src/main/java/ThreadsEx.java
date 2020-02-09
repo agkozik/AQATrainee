@@ -39,10 +39,10 @@ class Program {
 
     class ThreadFromLymbda {
         public static void main(String[] args) {
-            char[] array = "hello world".toCharArray();
+            char[] array = "hello_world".toCharArray();
             for (int i = 0; i < array.length; i++) {
-                int index = i;
-                new Thread(() -> System.out.println(array[index])).start();
+                final int index = i;
+                new Thread( () -> System.out.println(array[index])).start();
             }
         }
     }
