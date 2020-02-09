@@ -7,9 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SeleniumWorkWithWindow" />
-        <module name="FileInputOutputException" />
+        <module name="Java8Features" />
         <module name="CompareStringStringBufferStringBuilder" />
         <module name="StreamAPIExamples" />
+        <module name="FileInputOutputException" />
         <module name="CollectionsCompareTo" />
         <module name="FrameworkTut" />
         <module name="RestAssuredFundamentals" />

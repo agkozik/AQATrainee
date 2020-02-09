@@ -1,25 +1,18 @@
 package jsonClasses;
 
-public class Response{
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+public class VideoGame {
 	private int reviewScore;
 	private String releaseDate;
 	private String name;
 	private String rating;
 	private int id;
 	private String category;
-
-
-
-	@Override
- 	public String toString(){
-		return 
-			"Response{" + 
-			"reviewScore = '" + reviewScore + '\'' + 
-			",releaseDate = '" + releaseDate + '\'' + 
-			",name = '" + name + '\'' + 
-			",rating = '" + rating + '\'' + 
-			",id = '" + id + '\'' + 
-			",category = '" + category + '\'' + 
-			"}";
-		}
 }

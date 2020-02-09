@@ -1,5 +1,6 @@
 package com.herokuapp.theinternet.loginPageTests;
 
+import com.herokuapp.theinternet.pages.LoginPage;
 import com.herokuapp.theinternet.pages.SecureAreaPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import com.herokuapp.theinternet.testEngine.TestEngine;
@@ -19,5 +20,13 @@ public class PositiveLogInTests extends TestEngine {
                 .enterUserNameAndPassword("tomsmith", "SuperSecretPassword!")
                 .clickLoginButton();
         Assert.assertEquals(secureAreaPage.getCurrentUrlFromBrowser(), secureAreaPage.getExpectedUrl());
+    }
+
+    @Test
+    public void checkButtonColorTest(){
+        String color = new LoginPage(getDriver(),log)
+                .openPage()
+                .getColor();
+        System.out.println(color);
     }
 }

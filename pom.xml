@@ -28,6 +28,7 @@
         <module>SeleniumWorkWithWindow</module>
         <module>FrameworkTut</module>
         <module>RestAssuredFundamentals</module>
+        <module>Java8Features</module>
     </modules>
 
 </project>

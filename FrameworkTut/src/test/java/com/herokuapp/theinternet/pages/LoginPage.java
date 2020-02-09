@@ -5,9 +5,13 @@ import lombok.Getter;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Getter
 public class LoginPage extends BasePage {
+
+    public String pageURL = "http://the-internet.herokuapp.com/login";
 
     private By fieldUserName = By.xpath("//input[@id='username']");
     private By fieldUserPassword = By.xpath("//input[@id='password']");
@@ -18,6 +22,12 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver, Logger log) {
         super(driver, log);
+    }
+
+    @Step
+    public LoginPage openPage(){
+        openUrl(pageURL);
+        return this;
     }
 
     @Step
@@ -47,5 +57,12 @@ public class LoginPage extends BasePage {
     @Step
     public String getTextErrorMessageFromPage() {
         return find(errorMessageLocator).getText();
+    }
+
+    public String getColor(){
+        String buttonColor = driver.findElement(By.xpath("//button[@class='radius']"))
+                .getCssValue("color");
+        return buttonColor;
+
     }
 }
