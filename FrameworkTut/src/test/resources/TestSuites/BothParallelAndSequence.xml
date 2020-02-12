@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression1">
+    <parameter name="browser" value="chrome"/>
+
+    <test name="CheckBoxesTests" parallel="methods" thread-count="2">
+    <groups>
+        <run>
+            <include name="GroupOne"  />
+            <exclude name="GroupTwo"  />
+        </run>
+    </groups>
+    <classes>
+        <class name="com.herokuapp.theinternet.checkboxesTests.CheckBoxesTests"/>
+    </classes>
+</test>
+
+    <test name="CheckBoxesTests2" parallel="false">
+        <groups>
+            <run>
+                <include name="GroupOne"  />
+                <exclude name="GroupTwo"  />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.herokuapp.theinternet.checkboxesTests.CheckBoxesTests"/>
+        </classes>
+    </test>
+</suite>

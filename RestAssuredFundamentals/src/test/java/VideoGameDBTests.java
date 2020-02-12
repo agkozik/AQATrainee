@@ -150,6 +150,7 @@ public class VideoGameDBTests extends TestConfig implements IEndPoint {
                 .body(matchesJsonSchemaInClasspath("VideoGameJsonSchema.json"));
     }
 
+    //Serialise Json To Class
     @Test
     public void jsonToPojoСlass() {
         Response response = given()

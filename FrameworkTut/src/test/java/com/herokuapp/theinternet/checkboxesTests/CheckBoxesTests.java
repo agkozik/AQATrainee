@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class CheckBoxesTests extends TestEngine {
 
-    @Test
+    @Test(groups = { "GroupOne" })
     @Story("Checking CheckBox data")
     @Description("Select second checkbox and check if the first checkbox is selected")
     @Severity(SeverityLevel.MINOR)
@@ -27,7 +27,7 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertTrue(checkboxesPage.returnSelectedCheckboxes().get(0));
     }
 
-    @Test
+    @Test(groups = { "GroupOne" })
     @Story("Checking CheckBox data")
     @Description("Select all checkboxes and check all checkboxes is selected")
     @Severity(SeverityLevel.MINOR)
@@ -40,8 +40,7 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertTrue(checkboxesSelected);
     }
 
-    @Ignore
-    @Test
+    @Test(groups = { "GroupTwo" })
     public void unchooseAllCheckBoxes() {
         boolean checkboxesSelected = new WelcomePage(getDriver(), log)
                 .openPage()
@@ -51,8 +50,7 @@ public class CheckBoxesTests extends TestEngine {
         Assert.assertFalse(checkboxesSelected);
     }
 
-    @Ignore
-    @Test
+    @Test(groups = { "GroupTwo" })
     public void chooseFirstCheckboxOnPage() {
         int index = 2;
         CheckboxesPage checkboxesPage = new WelcomePage(getDriver(), log)

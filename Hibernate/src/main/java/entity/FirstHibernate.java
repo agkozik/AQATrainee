@@ -23,14 +23,14 @@ public class FirstHibernate {
     }
 
     private static void insertIntoTable(Person x) {
-        SessionFactory sessionFactory = new Configuration()
-                .configure()
-                .buildSessionFactory();
-        Session session =sessionFactory
-                .openSession();
-        session.beginTransaction();
-        session.save(x);
-        session.getTransaction().commit();
-        session.close();
+            SessionFactory sessionFactory = new Configuration()
+                    .configure()
+                    .buildSessionFactory();
+            Session session =sessionFactory
+                    .openSession();
+            session.beginTransaction();
+            session.save(x);
+            session.getTransaction().commit();
+            session.close();
     }
 }
