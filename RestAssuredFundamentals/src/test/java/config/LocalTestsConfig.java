@@ -3,6 +3,7 @@ package config;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
 import org.junit.BeforeClass;
 
 public class LocalTestsConfig {
@@ -12,6 +13,7 @@ public class LocalTestsConfig {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = 8080;
         RestAssured.basePath = "/app/";
+        //RestAssured.useRelaxedHTTPSValidation();
 
         //It will need if only you use Fiddler
         RestAssured.proxy("localhost", 8888);

@@ -16,8 +16,8 @@ public class ParallelStream {
         myList.add(54);
         myList.add(37);
         System.out.println("Исходный список: " + myList);
-        Stream<Integer> myStream = myList.stream();
 
+        Stream<Integer> myStream = myList.stream();
         //Кол-во элементов в списке
         System.out.println("Кол-во элементов в списке: " + myStream.count());
 

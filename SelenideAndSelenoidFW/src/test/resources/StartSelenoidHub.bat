@@ -1,0 +1,1 @@
+c:\webdrivers\SelenoidWithoughtDocker\selenoid_windows_386.exe -conf c:\webdrivers\SelenoidWithoughtDocker\browsers.json -disable-docker -limit 4

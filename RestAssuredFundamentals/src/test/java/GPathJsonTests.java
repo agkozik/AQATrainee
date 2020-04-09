@@ -53,8 +53,8 @@ public class GPathJsonTests extends TestConfig {
         Response response = given()
                 .spec(footballRequestSpec)
                 .get("areas");
-        int sumOfareas = response.path("areas.collect{it.id}.sum()");
-        System.out.println(sumOfareas);
+        int sumOfAreas = response.path("areas.collect{it.id}.sum()");
+        System.out.println(sumOfAreas);
     }
 
     @Test
@@ -84,5 +84,4 @@ public class GPathJsonTests extends TestConfig {
             System.out.println(i);
         }
     }
-
 }

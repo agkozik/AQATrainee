@@ -30,6 +30,5 @@ public class MapExample {
         while (iterator.hasNext()) {
             System.out.println(map.get(iterator.next()));
         }
-
     }
 }

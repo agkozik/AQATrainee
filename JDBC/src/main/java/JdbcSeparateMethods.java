@@ -130,6 +130,7 @@ public class JdbcSeparateMethods {
             e.printStackTrace();
         }
     }
+
     public static void showCountRegionsAndCitiesInCountry(Connection conn) {
         try (Statement statement = conn.createStatement()) {
             ResultSet resultSet = null;

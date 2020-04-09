@@ -49,13 +49,12 @@ public class TestConfig {
 
         //Set as default value
         //RestAssured.requestSpecification = videoGameRequestSpec;
-
+//задать в условии
         responseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(200)
                 .expectResponseTime(lessThan(3000L))
                 .build();
-        RestAssured.responseSpecification = responseSpec;
+        //Установить спецификацию по умолчанию
+        //RestAssured.responseSpecification = responseSpec;
     }
-
-
 }

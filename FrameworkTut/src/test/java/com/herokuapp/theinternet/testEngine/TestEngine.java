@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
@@ -20,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -39,28 +38,39 @@ public class TestEngine {
     //Parameter will get browser from testng.xml on which browser test to run
     @Parameters("browser")
     public void initDriver(Method method, @Optional("chrome")String browser, ITestContext ctx) throws MalformedURLException {
-
-        RemoteWebDriver driver = null;
-        if (browser.equals("chrome")) {
-            DesiredCapabilities capability = DesiredCapabilities.chrome();
-            capability.setBrowserName("chrome");
-            capability.setPlatform(Platform.WINDOWS);
-
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-        } else if (browser.equals("firefox")) {
-            DesiredCapabilities capability = DesiredCapabilities.firefox();
-            capability.setBrowserName("firefox");
-            capability.setPlatform(Platform.WINDOWS);
-
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-        }
-        setWebDriver(driver);
-        getDriver().manage().window().maximize();
-
         this.testSuiteName = ctx.getCurrentXmlTest().getSuite().getName();
         this.testName = ctx.getCurrentXmlTest().getName();
         this.testMethodName=method.getName();
         this.log = LogManager.getLogger(testName);
+
+        RemoteWebDriver driver = null;
+        if (browser.equals("chrome")) {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            //capabilities.setCapability("name", testName+"-"+testMethodName);
+            //capabilities.setVersion("80.0");
+            //capabilities.setCapability("enableVNC", true);
+            //capabilities.setCapability("enableVideo", false);
+
+            driver = new RemoteWebDriver(
+                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    capabilities
+            );
+        } else if (browser.equals("firefox")) {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("firefox");
+            //capabilities.setCapability("name", testName+"-"+testMethodName);
+            //capabilities.setVersion("72.0");
+            //capabilities.setCapability("enableVNC", true);
+            //capabilities.setCapability("enableVideo", false);
+
+            driver = new RemoteWebDriver(
+                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    capabilities
+            );
+        }
+        setWebDriver(driver);
+        getDriver().manage().window().maximize();
     }
 
     public WebDriver getDriver() {

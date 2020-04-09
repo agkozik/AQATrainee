@@ -98,8 +98,6 @@ public class JdbsPostgres {
         }
     }
 
-
-
     public static void closeConnection(Connection connection) {
         try {
             if (connection != null && !connection.isClosed()) {
@@ -108,5 +106,4 @@ public class JdbsPostgres {
         } catch (SQLException e) {
             throw new RuntimeException(e.getLocalizedMessage());
         }
-    }
-}
+    }}

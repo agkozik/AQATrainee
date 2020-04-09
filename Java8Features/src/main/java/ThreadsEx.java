@@ -1,5 +1,5 @@
 /**
- * Наследование от потока
+ * Наследование от класса Thread
  */
 public class ThreadsEx extends Thread {
     String row = "Hello_world";
@@ -25,24 +25,26 @@ class Program {
 /**
  * Реализация Интерфейса Runnable
  */
-    class ThreadFromLymbdaInterfaceRunnable {
-        public static void main(String[] args) {
-            String row = "Hello_world";
-            Runnable run = () -> {
-                System.out.println(row.charAt((int) (Math.random() * 10)));
-            };
-            for (int i = 0; i < row.length(); i++) {
-                new ThreadsEx("Thread " + i+" - "+row.charAt((int) (Math.random() * row.length()))).start();
-            }
+class ThreadFromLymbdaInterfaceRunnable {
+    public static void main(String[] args) {
+        String row = "Hello_world";
+        Runnable run = () -> {
+            System.out.println(row.charAt((int) (Math.random() * 10)));
+        };
+        for (int i = 0; i < row.length(); i++) {
+            new ThreadsEx("Thread " + i + " - " + row.charAt((int) (Math.random() * row.length()))).start();
         }
     }
+}
 
-    class ThreadFromLymbda {
-        public static void main(String[] args) {
-            char[] array = "hello_world".toCharArray();
-            for (int i = 0; i < array.length; i++) {
-                final int index = i;
-                new Thread( () -> System.out.println(array[index])).start();
-            }
+class ThreadFromLymbda {
+    public static void main(String[] args) {
+        char[] array = "hello_world".toCharArray();
+        for (int i = 0; i < array.length; i++) {
+            final int index = i;
+
+            new Thread(() -> System.out.println(array[index]))
+                    .start();
         }
     }
+}

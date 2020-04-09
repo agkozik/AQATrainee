@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class BaseStreamApiOperations {
     public static void main(String[] args) {
-        ArrayList<Integer> myList = new ArrayList<Integer>();
+        ArrayList<Integer> myList = new ArrayList<>();
         myList.add(1);
         myList.add(4);
         myList.add(2);
@@ -23,25 +23,32 @@ public class BaseStreamApiOperations {
 
         //Минимальное значение в списке:
         myStream = myList.stream();
-        Optional<Integer> minValue = myStream.min(Integer::compare);
+        Optional<Integer> minValue = myStream
+                .min(Integer::compare);
         if (minValue.isPresent()) System.out.println("Минимальное значение в списке: "
                 + minValue);
 
         //Максимальное значение в списке:
         myStream = myList.stream();
-        Optional<Integer> maxValue = myStream.max(Integer::compare);
+        Optional<Integer> maxValue = myStream
+                .max(Integer::compare);
         if (maxValue.isPresent()) {
             System.out.println("Максимальное значение в списке: " + maxValue);
         }
 
         //Сортировка списка
-        Stream<Integer> sortedStream = myList.stream().sorted();
+        Stream<Integer> sortedStream = myList
+                .stream()
+                .sorted();
         System.out.print("Отсортированный ПОТОК: ");
         sortedStream.forEach((item) -> System.out.print(item + ", "));
         System.out.println("\nИсходный список:      " + myList);
 
         //Вывод только нечетных, целочисленных значений, используя filter()
-        Stream<Integer> values = myList.stream().sorted().filter((n) -> (n % 2) == 1);
+        Stream<Integer> values = myList
+                .stream()
+                .sorted()
+                .filter((n) -> (n % 2) == 1);
         System.out.print("Вывод нечетных значений: ");
         values.forEach((n) -> System.out.print(n + " "));
 
@@ -60,7 +67,9 @@ public class BaseStreamApiOperations {
                 .forEach(System.out::println);
 
         //перемножить все числа в списке (1й способ)
-        int multiplyNumbers = myList.stream().reduce(1, (a, b) -> {
+        int multiplyNumbers = myList
+                .stream()
+                .reduce(1, (a, b) -> {
             if (a != 0 || b != 0) return a * b;
             else return 0;
         });
@@ -76,11 +85,15 @@ public class BaseStreamApiOperations {
         System.out.println(addNumbers);
 
         //перемножить все числа в списке (2й способ)
-        Optional<Integer> multiplyObject = myList.stream().reduce((a, b) -> a * b);
+        Optional<Integer> multiplyObject = myList
+                .stream()
+                .reduce((a, b) -> a * b);
         multiplyObject.ifPresent(System.out::println);
 
-        //перемножить все числа в списке (2й способ)
-        Optional<Integer> addObject2 = myList.stream().reduce((a, b) -> a + b);
+        //сложить все числа в списке (2й способ)
+        Optional<Integer> addObject2 = myList
+                .stream()
+                .reduce((a, b) -> a + b);
         addObject2.ifPresent(System.out::println);
     }
 }

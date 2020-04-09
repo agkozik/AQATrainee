@@ -13,8 +13,6 @@ import org.testng.annotations.Test;
 
 @Listeners({com.herokuapp.theinternet.testEngine.TestListener.class})
 public class DragAndDropTests extends TestEngine {
-    @Ignore
-    @Test
     void dragAtoB(){
         DragAndDropPage dragAndDropPage = new DragAndDropPage(getDriver(),log)
                 .openPage()

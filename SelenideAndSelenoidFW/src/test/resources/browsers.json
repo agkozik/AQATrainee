@@ -1,0 +1,29 @@
+{
+  "internet explorer": {
+    "default": "11",
+    "versions": {
+      "11": {
+        "image": ["c:\\webdrivers\\SelenoidWithoughtDocker\\IEDriverServer.exe"]
+      }
+    }
+  },
+
+"chrome": {
+    "default": "80",
+    "versions": {
+      "80": {
+        "image": ["c:\\webdrivers\\SelenoidWithoughtDocker\\chromedriver.exe"]
+      }
+    }
+  },
+
+"firefox": {
+    "default": "74",
+    "versions": {
+      "74": {
+        "image": ["c:\\webdrivers\\SelenoidWithoughtDocker\\chromedriver.exe"]
+      }
+    }
+  }
+
+}

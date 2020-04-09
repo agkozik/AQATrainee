@@ -29,6 +29,7 @@ public class Main {
         // а затем метод map ():
         Stream<NamePhone> filteredList = myList.stream().filter(item-> item.name.equals("Third"))
                 .map(item->new NamePhone(item.name,item.phoneNum));
+
         System.out.println("--------------------------------------------------");
         filteredList.forEach(i-> System.out.println(i.name+" "+i.phoneNum));
 

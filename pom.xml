@@ -29,6 +29,9 @@
         <module>FrameworkTut</module>
         <module>RestAssuredFundamentals</module>
         <module>Java8Features</module>
+        <module>DockerMeetUp</module>
+        <module>SelenideAndSelenoidFW</module>
+        <module>ChatServer</module>
     </modules>
 
 </project>

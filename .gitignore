@@ -1,2 +1,8 @@
 # Project exclude paths
-/JsonParsersTrainee/target/
+target/
+test-output/
+/FrameworkTut/test-output/
+/CalculatorInput/allure-results/
+/FrameworkTut/allure-results/
+/FrameworkTut/.allure/
+/CalculatorInput/.allure/

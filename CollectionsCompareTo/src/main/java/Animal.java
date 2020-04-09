@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Animal implements Comparable<Animal>{
+public class Animal implements Comparable<Animal> {
     private String name;
     private Integer strength;
 
@@ -27,9 +27,13 @@ public class Animal implements Comparable<Animal>{
 
     public static void main(String[] args) {
         List<Animal> animals = new ArrayList<Animal>();
-        animals.add(new Animal("Cat",3));
-        animals.add(new Animal("dog",2));
-        animals.add(new Animal("elephant",45));
+        animals.add(new Animal("Cat", 3));
+        animals.add(new Animal("A dog", 2));
+        animals.add(new Animal("elephant", 45));
+        animals.sort(
+                Comparator.comparing(Animal::getName));
+        System.out.println(animals);
+        System.out.println("__________________________________________________________");
 //
 //        for(Animal animal:animals){
 //            System.out.println(animal.getStrength());
@@ -40,7 +44,7 @@ public class Animal implements Comparable<Animal>{
 //            System.out.println(iter.next());
 //
 //        }
-        ListIterator<Animal> listIterator=animals.listIterator();
+        ListIterator<Animal> listIterator = animals.listIterator();
 //        while(listIterator.hasNext()){
 //            System.out.println(listIterator.next());
 //
@@ -48,7 +52,7 @@ public class Animal implements Comparable<Animal>{
 //        }
 
 //        listIterator.set(animals.get(2));
-        while(listIterator.hasPrevious()){
+        while (listIterator.hasPrevious()) {
             System.out.println(listIterator.previous());
         }
 
@@ -60,7 +64,7 @@ public class Animal implements Comparable<Animal>{
             }
         });
         //вывод результатов
-        for(Animal animal:animals){
+        for (Animal animal : animals) {
             System.out.println(animal.toString());
         }
     }

@@ -1,7 +1,7 @@
 import config.IEndPoint;
 import config.TestConfig;
 import io.restassured.response.Response;
-import jsonClasses.VideoGame;
+import models.VideoGame;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -139,6 +139,9 @@ public class VideoGameDBTests extends TestConfig implements IEndPoint {
                 .body(matchesXsdInClasspath("VideoGame.xsd"));
     }
 
+    /**
+     * JsonSchema Validator
+     */
     @Test
     public void shemaJsonValidation() {
         given()
@@ -150,9 +153,11 @@ public class VideoGameDBTests extends TestConfig implements IEndPoint {
                 .body(matchesJsonSchemaInClasspath("VideoGameJsonSchema.json"));
     }
 
-    //Serialise Json To Class
+    /**
+     * Serialise Json To Class
+     */
     @Test
-    public void jsonToPojoСlass() {
+    public void jsonToPojoClass() {
         Response response = given()
                 .spec(videoGameRequestSpecJson)
                 .pathParam("videoGameId", 5)
@@ -162,6 +167,9 @@ public class VideoGameDBTests extends TestConfig implements IEndPoint {
         Assert.assertEquals(videoGame.toString(), 6, videoGame.getId());
     }
 
+    /**
+     * Проверка, что ответ получен не позднее 2сек.
+     */
     @Test
     public void checkResponseTime() {
         given()
@@ -172,6 +180,4 @@ public class VideoGameDBTests extends TestConfig implements IEndPoint {
                 .then()
                 .time(lessThan(2000L));
     }
-
-
 }

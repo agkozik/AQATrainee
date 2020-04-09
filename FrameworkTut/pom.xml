@@ -72,9 +72,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/TestSuites/CheckBoxes.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+<!--                    <forkCount>5</forkCount>-->
+<!--                    <reuseForks>true</reuseForks>-->
+<!--                    <suiteXmlFiles>-->
+<!--                        <suiteXmlFile>src/test/resources/TestSuites/AllTestsSuiteParallel.xml</suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <systemProperties>
