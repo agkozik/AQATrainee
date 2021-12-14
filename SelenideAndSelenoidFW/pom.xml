@@ -16,7 +16,7 @@
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
         <selenide.version>5.10.0</selenide.version>
         <testng.version>7.1.0</testng.version>
-        <log4j-core.version>2.15.0</log4j-core.version>
+        <log4j-core.version>2.16.0</log4j-core.version>
         <log4j-api.version>2.15.0</log4j-api.version>
         <slf4j-simple.version>1.6.1</slf4j-simple.version>
 
